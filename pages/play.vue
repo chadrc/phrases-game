@@ -1,16 +1,29 @@
 <template>
   <section class="container">
-    <div>
-      <h1 class="title">
-        Play
-      </h1>
-    </div>
+    <h1 class="title has-text-centered">
+      Play
+    </h1>
+    <section class="game-area">
+      <button @click="startNewGame()" class="button is-primary is-large is-fullwidth">
+        New Game
+      </button>
+    </section>
   </section>
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["startNewGame"])
+  }
+};
 </script>
 
 <style scoped>
+.game-area {
+  width: 50%;
+  margin: auto;
+}
 </style>

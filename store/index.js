@@ -1,11 +1,20 @@
+import * as GameService from "@/services/GameService";
+
 export const state = () => {
   return {
-    phrases: []
+    currentGame: null
   };
 };
 
 export const mutations = {
-  setPhrases: (state, { phrases }) => {
-    state.phrases = phrases;
+  setGame: (state, game) => {
+    state.currentGame = game;
+  }
+};
+
+export const actions = {
+  startNewGame: async ({ commit }) => {
+    const game = await GameService.startGame();
+    commit("setGame", game);
   }
 };
