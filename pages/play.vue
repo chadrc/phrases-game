@@ -2,16 +2,14 @@
   <section class="container">
     <div>
       <h1 class="title">
-        Home
+        Play
       </h1>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  components: {}
-};
+export default {};
 </script>
 
 <style scoped>
