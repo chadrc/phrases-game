@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item">
           <h2 class="title">Phrases</h2>
         </a>
 
@@ -28,9 +28,9 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
+              <button class="button is-primary" @click="startSignUp()">
                 <strong>Sign up</strong>
-              </a>
+              </button>
               <a class="button is-light">
                 Log in
               </a>
@@ -39,9 +39,22 @@
         </div>
       </div>
     </nav>
+    <SignUpModal/>
     <nuxt />
   </div>
 </template>
+
+<script>
+import SignUpModal from "@/components/SignUpModal";
+import { mapActions } from "vuex";
+
+export default {
+  components: { SignUpModal },
+  methods: {
+    ...mapActions("auth", ["startSignUp"])
+  }
+};
+</script>
 
 <style>
 html {
