@@ -14,14 +14,10 @@ describe("Index", () => {
       }
     }
   });
-  // const routes = [{ path: "/foo", component: Foo }];
-  // const router = new VueRouter({
-  //   routes
-  // });
+
   const wrapper = mount(SignUpModal, {
     localVue,
     store
-    // router
   });
 
   test("is vue instance", () => {
