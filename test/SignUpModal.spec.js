@@ -28,4 +28,9 @@ describe("Index", () => {
   test("renders regular", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  test("renders active", () => {
+    store.commit("auth/setSigningUp", true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
