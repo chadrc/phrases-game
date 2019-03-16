@@ -1,3 +1,5 @@
+import * as AuthService from "@/services/AuthService";
+
 export const state = () => ({
   signingUp: false,
   signingIn: false,
@@ -45,5 +47,10 @@ export const actions = {
   },
   endSignIn: ({ commit }) => {
     commit("setSigningIn", false);
+  },
+  submitSignUp: async ({ commit }, { username, password }) => {
+    commit("setSendingSignUp", true);
+    const signUpResponse = await AuthService.signUp({ username, password });
+    commit("setSignUp", signUpResponse);
   }
 };

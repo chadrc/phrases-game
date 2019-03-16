@@ -8,7 +8,9 @@ export const testAction = (action, payload, state, expectedMutations, done) => {
 
     try {
       expect(type).toEqual(mutation.type);
-      if (payload) {
+      if (mutation.payload instanceof Function) {
+        mutation.payload(payload);
+      } else if (payload) {
         expect(payload).toEqual(mutation.payload);
       }
     } catch (error) {

@@ -49,7 +49,13 @@ describe("Auth Actions", () => {
       {},
       [
         { type: "setSendingSignUp", payload: true },
-        { type: "setSignUp", payload: { username: "PandaBear" } }
+        {
+          type: "setSignUp",
+          payload: payload => {
+            expect(payload.id).toBeTruthy();
+            expect(payload.username).toEqual("PandaBear");
+          }
+        }
       ],
       done
     );
