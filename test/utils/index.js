@@ -2,7 +2,7 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import * as authStoreModule from "@/store/auth";
 
-export const makeVueMock = C => {
+export const makeVueMock = (C, propsData) => {
   const localVue = createLocalVue();
   localVue.use(Vuex);
   const store = new Vuex.Store({
@@ -16,7 +16,8 @@ export const makeVueMock = C => {
 
   const wrapper = mount(C, {
     localVue,
-    store
+    store,
+    propsData
   });
 
   return { wrapper, store };
