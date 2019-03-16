@@ -1,4 +1,3 @@
-import { accessSync } from "fs";
 import uuid from "uuid/v4";
 
 const accounts = {};
