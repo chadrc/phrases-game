@@ -66,4 +66,29 @@ describe("Auth Actions", () => {
       done
     );
   });
+
+  test("submitSignUp - Error", done => {
+    const actions = makeActions({
+      signUp: ({ username, password }) => {
+        return Promise.resolve({
+          error: {
+            message: "Invalid password"
+          }
+        });
+      }
+    });
+    testAction(
+      actions.submitSignUp,
+      { username: "PandaBear", password: "bamboo123" },
+      {},
+      [
+        { type: "setSendingSignUp", payload: true },
+        {
+          type: "setSignUpError",
+          payload: { error: { message: "Invalid password" } }
+        }
+      ],
+      done
+    );
+  });
 });
