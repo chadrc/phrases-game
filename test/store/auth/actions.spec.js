@@ -21,4 +21,24 @@ describe("Auth Actions", () => {
       done
     );
   });
+
+  test("startSignIn", done => {
+    testAction(
+      actions.startSignIn,
+      null,
+      {},
+      [{ type: "setSigningIn", payload: true }],
+      done
+    );
+  });
+
+  test("endSignIn", done => {
+    testAction(
+      actions.endSignIn,
+      null,
+      {},
+      [{ type: "setSigningIn", payload: false }],
+      done
+    );
+  });
 });

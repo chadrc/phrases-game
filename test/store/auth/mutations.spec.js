@@ -1,7 +1,7 @@
 import { mutations } from "@/store/auth";
 
 describe("Auth Mutations", () => {
-  test("set sign up", () => {
+  test("setSigningUp", () => {
     const state = { signingUp: true };
     mutations.setSigningUp(state, false);
 
@@ -10,5 +10,16 @@ describe("Auth Mutations", () => {
     mutations.setSigningUp(state, true);
 
     expect(state.signingUp).toBe(true);
+  });
+
+  test("setSigningIn", () => {
+    const state = { signingIn: true };
+    mutations.setSigningIn(state, false);
+
+    expect(state.signingIn).toBe(false);
+
+    mutations.setSigningIn(state, true);
+
+    expect(state.signingIn).toBe(true);
   });
 });

@@ -5,4 +5,9 @@ describe("Auth Getters", () => {
     const state = { signingUp: true };
     expect(getters.signingUp(state)).toBe(true);
   });
+
+  test("signing in", () => {
+    const state = { signingIn: true };
+    expect(getters.signingIn(state)).toBe(true);
+  });
 });
