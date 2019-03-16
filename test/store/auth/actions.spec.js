@@ -62,8 +62,8 @@ describe("Auth Actions", () => {
           type: "setCurrentUser",
           payload: { id: "123", username: "PandaBear" }
         },
-        { type: "setSendingSignUp", payload: false },
-        { type: "setSigningUp", payload: false }
+        { type: "setSigningUp", payload: false },
+        { type: "setSendingSignUp", payload: false }
       ],
       done
     );
@@ -89,7 +89,8 @@ describe("Auth Actions", () => {
         {
           type: "setSignUpError",
           payload: { error: { message: "Invalid password" } }
-        }
+        },
+        { type: "setSendingSignUp", payload: false }
       ],
       done
     );

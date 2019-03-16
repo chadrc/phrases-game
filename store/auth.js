@@ -61,9 +61,9 @@ export const makeActions = authService => {
         commit("setSignUpError", signUpResponse);
       } else {
         commit("setCurrentUser", signUpResponse);
-        commit("setSendingSignUp", false);
         commit("setSigningUp", false);
       }
+      commit("setSendingSignUp", false);
     }
   };
 };
