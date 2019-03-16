@@ -77,6 +77,7 @@ describe("Auth Actions", () => {
         });
       }
     });
+
     testAction(
       actions.submitSignUp,
       { username: "PandaBear", password: "bamboo123" },
