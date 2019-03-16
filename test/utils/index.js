@@ -11,7 +11,7 @@ export const makeVueMock = (
 
   const nuxtLinkMock = {
     props: ["to"],
-    template: "<a nuxt-link :href='to'>\n<slot></slot>\n</a>"
+    template: "<a :href='to'>\n<slot></slot>\n</a>"
   };
 
   localVue.component("nuxt-link", nuxtLinkMock);
@@ -31,9 +31,7 @@ export const makeVueMock = (
     localVue,
     store,
     propsData,
-    stubs: {
-      "nuxt-link": nuxtLinkMock
-    },
+    stubs,
     mocks
   };
 
