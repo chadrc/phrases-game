@@ -65,6 +65,19 @@ describe("SignUpModal", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  test("error message", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit",
+        cancelText: "Don't Submit",
+        errorMessage: "This is an error"
+      }
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   /**
    * Event Testing
    */

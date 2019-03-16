@@ -19,6 +19,11 @@
           <input v-model="password" class="input" type="password" placeholder="Password">
         </div>
       </div>
+      <article v-if="errorMessage" class="message is-danger">
+        <div class="message-body">
+          {{ errorMessage }}
+        </div>
+      </article>
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success" :class="{'is-loading': loading}" @click="submit()">{{ submitText }}</button>
@@ -50,6 +55,9 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    errorMessage: {
+      type: String
     }
   },
   data: () => {
