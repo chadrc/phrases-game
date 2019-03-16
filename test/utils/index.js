@@ -9,11 +9,12 @@ export const makeVueMock = (
   const localVue = createLocalVue();
   localVue.use(Vuex);
 
-  const nuxtLinkMock = "<nuxt-link-stub to='to'><slot></slot></nuxt-link-stub>";
+  const nuxtLinkMock = {
+    props: ["to"],
+    template: "<a nuxt-link :href='to'>\n<slot></slot>\n</a>"
+  };
 
-  localVue.component("nuxt-link", {
-    template: nuxtLinkMock
-  });
+  localVue.component("nuxt-link", nuxtLinkMock);
 
   const store = new Vuex.Store({
     modules: {

@@ -47,32 +47,35 @@ exports[`MenuBar renders regular 1`] = `
     <div
       class="navbar-start"
     >
-      <nuxt-link-stub
+      <a
         class="navbar-item"
-        to="/"
+        href="/"
+        nuxt-link=""
       >
         
         Home
       
-      </nuxt-link-stub>
+      </a>
        
-      <nuxt-link-stub
+      <a
         class="navbar-item"
-        to="/play"
+        href="/play"
+        nuxt-link=""
       >
         
         Play
       
-      </nuxt-link-stub>
+      </a>
        
-      <nuxt-link-stub
+      <a
         class="navbar-item"
-        to="/create"
+        href="/create"
+        nuxt-link=""
       >
         
         Create
       
-      </nuxt-link-stub>
+      </a>
     </div>
      
     <div
