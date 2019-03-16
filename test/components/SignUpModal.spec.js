@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import SignUpModal from "@/components/SignUpModal.vue";
 import * as authStoreModule from "@/store/auth";
 
-describe("Index", () => {
+describe("SignUpModal", () => {
   const localVue = createLocalVue();
   localVue.use(Vuex);
   const store = new Vuex.Store({
@@ -21,7 +21,6 @@ describe("Index", () => {
   });
 
   test("is vue instance", () => {
-    // const wrapper = mount(SignUpModal);
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 

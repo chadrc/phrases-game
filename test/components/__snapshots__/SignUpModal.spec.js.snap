@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index renders active 1`] = `
+exports[`SignUpModal renders active 1`] = `
 <div
   class="modal is-active"
 >
@@ -49,7 +49,7 @@ exports[`Index renders active 1`] = `
 </div>
 `;
 
-exports[`Index renders regular 1`] = `
+exports[`SignUpModal renders regular 1`] = `
 <div
   class="modal"
 >
