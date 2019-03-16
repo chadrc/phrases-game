@@ -10,4 +10,13 @@ describe("AuthService", () => {
       }
     );
   });
+
+  test("signUp - Invalid password", done => {
+    AuthService.signUp({ username: "PandaBear", password: "password" }).then(
+      response => {
+        expect(response.error.message).toEqual("Invalid Password");
+        done();
+      }
+    );
+  });
 });
