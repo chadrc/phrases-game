@@ -25,8 +25,12 @@ export const signUp = ({ username, password }) => {
     });
   }
 
-  return Promise.resolve({
-    id: uuid(),
-    username
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        id: uuid(),
+        username
+      });
+    }, 1000);
   });
 };
