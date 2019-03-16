@@ -7,7 +7,18 @@
       <button class="delete" aria-label="close" @click="cancel()"></button>
     </header>
     <section class="modal-card-body">
-      <!-- Content ... -->
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control">
+          <input v-model="username" class="input" type="text" placeholder="Username">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input v-model="password" class="input" type="password" placeholder="Password">
+        </div>
+      </div>
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success" @click="submit()">{{ submitText }}</button>

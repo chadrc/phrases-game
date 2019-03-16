@@ -20,7 +20,8 @@
           </nuxt-link>
           <nuxt-link to="/play" class="navbar-item">
             Play
-          </nuxt-link><nuxt-link to="/create" class="navbar-item">
+          </nuxt-link>
+          <nuxt-link to="/create" class="navbar-item">
             Create
           </nuxt-link>
         </div>

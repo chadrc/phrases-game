@@ -4,7 +4,7 @@
       Play
     </h1>
     <section class="game-area">
-      <button @click="startNewGame()" class="button is-primary is-large is-fullwidth">
+      <button class="button is-primary is-large is-fullwidth" @click="startNewGame()">
         New Game
       </button>
     </section>

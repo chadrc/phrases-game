@@ -1,6 +1,5 @@
 import AuthModal from "@/components/AuthModal.vue";
 import { makeVueMock } from "@/test/utils";
-import sinon from "sinon";
 
 describe("SignUpModal", () => {
   test("is vue instance", () => {
