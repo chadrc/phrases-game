@@ -4,8 +4,10 @@ import { makeVueMock } from "@/test/utils";
 describe("SignUpModal", () => {
   test("is vue instance", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     expect(wrapper.isVueInstance()).toBeTruthy();
@@ -13,8 +15,10 @@ describe("SignUpModal", () => {
 
   test("renders regular", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -22,9 +26,11 @@ describe("SignUpModal", () => {
 
   test("renders active", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit",
-      active: true
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit",
+        active: true
+      }
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -32,9 +38,11 @@ describe("SignUpModal", () => {
 
   test("custom cancel text", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit",
-      cancelText: "Don't Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit",
+        cancelText: "Don't Submit"
+      }
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -42,8 +50,10 @@ describe("SignUpModal", () => {
 
   test("submit clicked", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     wrapper.find(".modal-card-foot > button:first-child").trigger("click");
@@ -55,8 +65,10 @@ describe("SignUpModal", () => {
 
   test("submit event with data", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     wrapper.vm.$data.username = "Panda Bear";
@@ -71,8 +83,10 @@ describe("SignUpModal", () => {
 
   test("cancel event - 'x' button", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     wrapper.find(".modal-card-head > button.delete").trigger("click");
@@ -84,8 +98,10 @@ describe("SignUpModal", () => {
 
   test("cancel event - cancel button", () => {
     const { wrapper } = makeVueMock(AuthModal, {
-      title: "Auth Modal",
-      submitText: "Submit"
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit"
+      }
     });
 
     wrapper.find(".modal-card-foot > button:last-child").trigger("click");
