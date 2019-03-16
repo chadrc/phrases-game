@@ -20,6 +20,9 @@ export const mutations = {
   },
   setSigningIn: (state, val) => {
     state.signingIn = val;
+  },
+  setSendingSignUp: (state, val) => {
+    state.sendingSignUp = val;
   }
 };
 

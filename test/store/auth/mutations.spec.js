@@ -22,4 +22,15 @@ describe("Auth Mutations", () => {
 
     expect(state.signingIn).toBe(true);
   });
+
+  test("setSendingSignUp", () => {
+    const state = { sendingSignUp: false };
+    mutations.setSendingSignUp(state, true);
+
+    expect(state.sendingSignUp).toBe(true);
+
+    mutations.setSendingSignUp(state, false);
+
+    expect(state.sendingSignUp).toBe(false);
+  });
 });
