@@ -15,5 +15,6 @@ module.exports = {
     "<rootDir>/pages/**/*.vue",
     "<rootDir>/store/**/*.js",
     "<rootDir>/services/**/*.js"
-  ]
+  ],
+  snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"]
 };
