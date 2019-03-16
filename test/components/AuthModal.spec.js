@@ -54,6 +54,22 @@ describe("SignUpModal", () => {
     expect(submitEmission).toBeTruthy();
   });
 
+  test("submit event with data", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      title: "Auth Modal",
+      submitText: "Submit"
+    });
+
+    wrapper.vm.$data.username = "Panda Bear";
+    wrapper.vm.$data.password = "bamboo123";
+
+    wrapper.find(".modal-card-foot > button:first-child").trigger("click");
+
+    const submitEmission = wrapper.emitted().submit;
+
+    expect(submitEmission[0]).toEqual(["Panda Bear", "bamboo123"]);
+  });
+
   test("cancel event - 'x' button", () => {
     const { wrapper } = makeVueMock(AuthModal, {
       title: "Auth Modal",

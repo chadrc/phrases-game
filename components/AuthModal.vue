@@ -19,6 +19,12 @@
 
 <script>
 export default {
+  data: () => {
+    return {
+      username: "",
+      password: ""
+    }
+  },
   props: {
     title: {
       type: String,
@@ -39,7 +45,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit("submit");
+      this.$emit("submit", this.username, this.password);
     },
     cancel() {
       this.$emit("cancel");
