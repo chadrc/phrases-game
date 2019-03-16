@@ -1,5 +1,14 @@
-import { actions } from "@/store/auth";
+import { makeActions } from "@/store/auth";
 import { testAction } from "@/test/store/utils";
+
+const actions = makeActions({
+  signUp: ({ username, password }) => {
+    return Promise.resolve({
+      id: "123",
+      username
+    });
+  }
+});
 
 describe("Auth Actions", () => {
   test("startSignUp", done => {
@@ -51,10 +60,7 @@ describe("Auth Actions", () => {
         { type: "setSendingSignUp", payload: true },
         {
           type: "setCurrentUser",
-          payload: payload => {
-            expect(payload.id).toBeTruthy();
-            expect(payload.username).toEqual("PandaBear");
-          }
+          payload: { id: "123", username: "PandaBear" }
         }
       ],
       done

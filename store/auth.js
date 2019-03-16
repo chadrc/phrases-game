@@ -34,22 +34,26 @@ export const mutations = {
   }
 };
 
-export const actions = {
-  startSignUp: ({ commit }) => {
-    commit("setSigningUp", true);
-  },
-  endSignUp: ({ commit }) => {
-    commit("setSigningUp", false);
-  },
-  startSignIn: ({ commit }) => {
-    commit("setSigningIn", true);
-  },
-  endSignIn: ({ commit }) => {
-    commit("setSigningIn", false);
-  },
-  submitSignUp: async ({ commit }, { username, password }) => {
-    commit("setSendingSignUp", true);
-    const signUpResponse = await AuthService.signUp({ username, password });
-    commit("setCurrentUser", signUpResponse);
-  }
+export const makeActions = authService => {
+  return {
+    startSignUp: ({ commit }) => {
+      commit("setSigningUp", true);
+    },
+    endSignUp: ({ commit }) => {
+      commit("setSigningUp", false);
+    },
+    startSignIn: ({ commit }) => {
+      commit("setSigningIn", true);
+    },
+    endSignIn: ({ commit }) => {
+      commit("setSigningIn", false);
+    },
+    submitSignUp: async ({ commit }, { username, password }) => {
+      commit("setSendingSignUp", true);
+      const signUpResponse = await authService.signUp({ username, password });
+      commit("setCurrentUser", signUpResponse);
+    }
+  };
 };
+
+export const actions = makeActions(AuthService);
