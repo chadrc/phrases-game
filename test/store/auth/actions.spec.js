@@ -57,6 +57,10 @@ describe("Auth Actions", () => {
       { username: "PandaBear", password: "bamboo123" },
       {},
       [
+        {
+          type: "setSignUpError",
+          payload: null
+        },
         { type: "setSendingSignUp", payload: true },
         {
           type: "setCurrentUser",
@@ -85,6 +89,10 @@ describe("Auth Actions", () => {
       { username: "PandaBear", password: "bamboo123" },
       {},
       [
+        {
+          type: "setSignUpError",
+          payload: null
+        },
         { type: "setSendingSignUp", payload: true },
         {
           type: "setSignUpError",

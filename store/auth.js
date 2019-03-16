@@ -55,14 +55,24 @@ export const makeActions = authService => {
       commit("setSigningIn", false);
     },
     submitSignUp: async ({ commit }, { username, password }) => {
+      // clear error if we have one
+      commit("setSignUpError", null);
+
+      // waiting for sign up response flag
       commit("setSendingSignUp", true);
+
       const signUpResponse = await authService.signUp({ username, password });
+
+      // set error if present
       if (signUpResponse.error) {
         commit("setSignUpError", signUpResponse);
       } else {
+        // otherwise set user and end sign up proccess
         commit("setCurrentUser", signUpResponse);
         commit("setSigningUp", false);
       }
+
+      // no longer waiting for response
       commit("setSendingSignUp", false);
     }
   };
