@@ -1,24 +1,8 @@
-import { mount, createLocalVue } from "@vue/test-utils";
-import Vuex from "vuex";
 import PlayView from "@/pages/play.vue";
-import * as authStoreModule from "@/store/auth";
+import { makeVueMock } from "@/test/utils";
 
 describe("Play View", () => {
-  const localVue = createLocalVue();
-  localVue.use(Vuex);
-  const store = new Vuex.Store({
-    modules: {
-      auth: {
-        namespaced: true,
-        ...authStoreModule
-      }
-    }
-  });
-
-  const wrapper = mount(PlayView, {
-    localVue,
-    store
-  });
+  const { wrapper } = makeVueMock(PlayView);
 
   test("is vue instance", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();

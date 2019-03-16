@@ -1,24 +1,8 @@
-import { mount, createLocalVue } from "@vue/test-utils";
-import Vuex from "vuex";
 import SignUpModal from "@/components/SignUpModal.vue";
-import * as authStoreModule from "@/store/auth";
+import { makeVueMock } from "@/test/utils";
 
 describe("SignUpModal", () => {
-  const localVue = createLocalVue();
-  localVue.use(Vuex);
-  const store = new Vuex.Store({
-    modules: {
-      auth: {
-        namespaced: true,
-        ...authStoreModule
-      }
-    }
-  });
-
-  const wrapper = mount(SignUpModal, {
-    localVue,
-    store
-  });
+  const { wrapper, store } = makeVueMock(SignUpModal);
 
   test("is vue instance", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
