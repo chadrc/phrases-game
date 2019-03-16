@@ -33,4 +33,22 @@ describe("Auth Mutations", () => {
 
     expect(state.sendingSignUp).toBe(false);
   });
+
+  test("setSignUp - Result", () => {
+    const state = { signUpResult: null, signUpError: null };
+
+    mutations.setSignUp(state, { status: "ok" });
+
+    expect(state.signUpResult).toEqual({ status: "ok" });
+    expect(state.signUpError).toBeNull();
+  });
+
+  test("setSignUp - Error", () => {
+    const state = { signUpResult: null, signUpError: null };
+
+    mutations.setSignUp(state, { error: "not ok" });
+
+    expect(state.signUpResult).toBeNull();
+    expect(state.signUpError).toEqual({ error: "not ok" });
+  });
 });

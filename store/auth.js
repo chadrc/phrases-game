@@ -23,6 +23,13 @@ export const mutations = {
   },
   setSendingSignUp: (state, val) => {
     state.sendingSignUp = val;
+  },
+  setSignUp: (state, result) => {
+    if (result.error) {
+      state.signUpError = result;
+    } else {
+      state.signUpResult = result;
+    }
   }
 };
 
