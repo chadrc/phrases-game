@@ -15,8 +15,8 @@ describe("Auth Getters", () => {
     expect(getters.sendingSignUp(state)).toBe(false);
   });
 
-  test("signUpResult", () => {
-    expect(getters.signUpResult(state)).toBeNull();
+  test("currentUser", () => {
+    expect(getters.currentUser(state)).toBeNull();
   });
 
   test("signUpError", () => {

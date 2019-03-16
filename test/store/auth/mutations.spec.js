@@ -34,21 +34,21 @@ describe("Auth Mutations", () => {
     expect(state.sendingSignUp).toBe(false);
   });
 
-  test("setSignUp - Result", () => {
-    const state = { signUpResult: null, signUpError: null };
+  test("setCurrentUser", () => {
+    const state = { currentUser: null, signUpError: null };
 
-    mutations.setSignUp(state, { status: "ok" });
+    mutations.setCurrentUser(state, { id: "123", username: "PandaBear" });
 
-    expect(state.signUpResult).toEqual({ status: "ok" });
+    expect(state.currentUser).toEqual({ id: "123", username: "PandaBear" });
     expect(state.signUpError).toBeNull();
   });
 
-  test("setSignUp - Error", () => {
-    const state = { signUpResult: null, signUpError: null };
+  test("setSignUpError", () => {
+    const state = { currentUser: null, signUpError: null };
 
-    mutations.setSignUp(state, { error: "not ok" });
+    mutations.setSignUpError(state, { error: "not ok" });
 
-    expect(state.signUpResult).toBeNull();
+    expect(state.currentUser).toBeNull();
     expect(state.signUpError).toEqual({ error: "not ok" });
   });
 });

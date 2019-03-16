@@ -50,7 +50,7 @@ describe("Auth Actions", () => {
       [
         { type: "setSendingSignUp", payload: true },
         {
-          type: "setSignUp",
+          type: "setCurrentUser",
           payload: payload => {
             expect(payload.id).toBeTruthy();
             expect(payload.username).toEqual("PandaBear");
