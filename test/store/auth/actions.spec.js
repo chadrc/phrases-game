@@ -5,6 +5,7 @@ const actions = makeActions({
   signUp: ({ username, password }) => {
     return Promise.resolve({
       id: "123",
+      accessToken: "987",
       username
     });
   }
@@ -64,7 +65,7 @@ describe("Auth Actions", () => {
         { type: "setSendingSignUp", payload: true },
         {
           type: "setCurrentUser",
-          payload: { id: "123", username: "PandaBear" }
+          payload: { id: "123", username: "PandaBear", accessToken: "987" }
         },
         { type: "setSigningUp", payload: false },
         { type: "setSendingSignUp", payload: false }
