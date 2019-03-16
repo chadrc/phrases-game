@@ -4,22 +4,20 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">{{ title }}</p></p>
-      <button class="delete" aria-label="close"></button>
+      <button class="delete" aria-label="close" @click="cancel()"></button>
     </header>
     <section class="modal-card-body">
       <!-- Content ... -->
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success" @click="submit()">{{ submitText }}</button>
-      <button class="button">{{ cancelText }}</button>
+      <button class="button" @click="cancel()">{{ cancelText }}</button>
     </footer>
   </div>
 </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-
 export default {
   props: {
     title: {
@@ -42,6 +40,9 @@ export default {
   methods: {
     submit() {
       this.$emit("submit");
+    },
+    cancel() {
+      this.$emit("cancel");
     }
   }
 };

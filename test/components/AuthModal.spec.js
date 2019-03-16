@@ -53,4 +53,30 @@ describe("SignUpModal", () => {
 
     expect(submitEmission).toBeTruthy();
   });
+
+  test("cancel event - 'x' button", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      title: "Auth Modal",
+      submitText: "Submit"
+    });
+
+    wrapper.find(".modal-card-head > button.delete").trigger("click");
+
+    const submitEmission = wrapper.emitted().cancel;
+
+    expect(submitEmission).toBeTruthy();
+  });
+
+  test("cancel event - cancel button", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      title: "Auth Modal",
+      submitText: "Submit"
+    });
+
+    wrapper.find(".modal-card-foot > button:last-child").trigger("click");
+
+    const submitEmission = wrapper.emitted().cancel;
+
+    expect(submitEmission).toBeTruthy();
+  });
 });
