@@ -55,7 +55,7 @@ describe("AuthService", () => {
   });
 
   test("signIn - Before sign up", done => {
-    AuthService.signIn({ username: "PandaBear", password: "bamboo123" }).then(
+    AuthService.signIn({ username: "PolarBear", password: "bamboo123" }).then(
       response => {
         expect(response.error.message).toEqual("account does not exist");
         done();
@@ -63,14 +63,25 @@ describe("AuthService", () => {
     );
   });
 
-  // test("signIn - Success", done => {
-  //   AuthService.signIn({ username: "PandaBear", password: "bamboo123" }).then(
-  //     response => {
-  //       expect(response.id).toBeTruthy();
-  //       expect(response.accessToken).toBeTruthy();
-  //       expect(response.username).toEqual("PandaBear");
-  //       done();
-  //     }
-  //   );
-  // });
+  test("signIn - Success", done => {
+    AuthService.signIn({ username: "PandaBear", password: "bamboo123" }).then(
+      signUpResponse => {
+        const id = signUpResponse.id;
+
+        AuthService.signOut({ accessToken: signUpResponse.accessToken }).then(
+          () => {
+            AuthService.signIn({
+              username: "PandaBear",
+              password: "bamboo123"
+            }).then(response => {
+              expect(response.id).toEqual(id);
+              expect(response.accessToken).toBeTruthy();
+              expect(response.username).toEqual("PandaBear");
+              done();
+            });
+          }
+        );
+      }
+    );
+  });
 });

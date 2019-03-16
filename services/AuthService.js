@@ -1,3 +1,4 @@
+import { accessSync } from "fs";
 import uuid from "uuid/v4";
 
 const accounts = {};
@@ -27,13 +28,17 @@ export const signUp = ({ username, password }) => {
     });
   }
 
+  const account = {
+    id: uuid(),
+    accessToken: uuid(),
+    username
+  };
+
+  accounts[account.username] = account;
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({
-        id: uuid(),
-        accessToken: uuid(),
-        username
-      });
+      resolve(account);
     }, 1000);
   });
 };
@@ -62,4 +67,10 @@ export const signIn = ({ username, password }) => {
       }
     });
   }
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(accounts[username]);
+    }, 500);
+  });
 };
