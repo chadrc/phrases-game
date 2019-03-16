@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit("submit", this.username, this.password);
+      this.$emit("submit", { username: this.username, password: this.password });
     },
     cancel() {
       this.$emit("cancel");

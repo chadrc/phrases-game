@@ -78,7 +78,9 @@ describe("SignUpModal", () => {
 
     const submitEmission = wrapper.emitted().submit;
 
-    expect(submitEmission[0]).toEqual(["Panda Bear", "bamboo123"]);
+    expect(submitEmission[0]).toEqual([
+      { username: "Panda Bear", password: "bamboo123" }
+    ]);
   });
 
   test("cancel event - 'x' button", () => {

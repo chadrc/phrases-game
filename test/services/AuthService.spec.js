@@ -19,4 +19,18 @@ describe("AuthService", () => {
       }
     );
   });
+
+  test("signUp - No username", done => {
+    AuthService.signUp({ password: "password" }).then(response => {
+      expect(response.error.message).toEqual("username required");
+      done();
+    });
+  });
+
+  test("signUp - No password", done => {
+    AuthService.signUp({ username: "PandaBear" }).then(response => {
+      expect(response.error.message).toEqual("password required");
+      done();
+    });
+  });
 });

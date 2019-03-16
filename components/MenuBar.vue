@@ -29,7 +29,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <button class="button is-primary" @click="startSignUp()">
+              <button class="button is-primary" @click="startSignUp">
                 <strong>Sign up</strong>
               </button>
               <a class="button is-light">
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <AuthModal :active="signingUp" title="Sign Up" submitText="Sign Up" @cancel="endSignUp()"/>
+      <AuthModal :active="signingUp" title="Sign Up" submit-text="Sign Up" @cancel="endSignUp" @submit="submitSignUp"/>
     </nav>
 </template>
 
@@ -53,7 +53,7 @@ export default {
     ...mapGetters("auth", ["signingUp"])
   },
   methods: {
-    ...mapActions("auth", ["startSignUp", "endSignUp"])
+    ...mapActions("auth", ["startSignUp", "endSignUp", "submitSignUp"])
   },
 };
 </script>
