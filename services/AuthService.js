@@ -29,8 +29,25 @@ export const signUp = ({ username, password }) => {
     setTimeout(() => {
       resolve({
         id: uuid(),
+        accessToken: uuid(),
         username
       });
     }, 1000);
+  });
+};
+
+export const signOut = ({ accessToken }) => {
+  if (!accessToken) {
+    return Promise.resolve({
+      error: {
+        message: "access token required"
+      }
+    });
+  }
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({});
+    }, 500);
   });
 };
