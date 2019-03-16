@@ -61,7 +61,9 @@ describe("Auth Actions", () => {
         {
           type: "setCurrentUser",
           payload: { id: "123", username: "PandaBear" }
-        }
+        },
+        { type: "setSendingSignUp", payload: false },
+        { type: "setSigningUp", payload: false }
       ],
       done
     );
