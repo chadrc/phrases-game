@@ -41,4 +41,17 @@ describe("Auth Actions", () => {
       done
     );
   });
+
+  test("submitSignUp - Success", done => {
+    testAction(
+      actions.submitSignUp,
+      { username: "PandaBear", password: "bamboo123" },
+      {},
+      [
+        { type: "setSendingSignUp", payload: true },
+        { type: "setSignUp", payload: { username: "PandaBear" } }
+      ],
+      done
+    );
+  });
 });
