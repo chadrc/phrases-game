@@ -29,10 +29,12 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <button class="button is-primary" @click="startSignUp">
+              <button class="button is-primary"
+                      v-show="!currentUser"
+                      @click="startSignUp">
                 <strong>Sign up</strong>
               </button>
-              <a class="button is-light">
+              <a class="button is-light" v-show="!currentUser">
                 Log in
               </a>
             </div>
@@ -57,7 +59,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   components: { AuthModal },
   computed: {
-    ...mapGetters("auth", ["signingUp", "signUpError", "sendingSignUp"])
+    ...mapGetters("auth", ["signingUp", "signUpError", "sendingSignUp", "currentUser"])
   },
   methods: {
     ...mapActions("auth", ["startSignUp", "endSignUp", "submitSignUp"])

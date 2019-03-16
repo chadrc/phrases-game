@@ -2,7 +2,7 @@ import MenuBar from "@/components/MenuBar.vue";
 import { makeVueMock } from "@/test/utils";
 
 describe("MenuBar", () => {
-  const { wrapper } = makeVueMock(MenuBar, {
+  const { wrapper, store } = makeVueMock(MenuBar, {
     shallow: true
   });
 
@@ -11,6 +11,11 @@ describe("MenuBar", () => {
   });
 
   test("renders regular", () => {
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  test("has user", () => {
+    store.commit("auth/setCurrentUser", { id: "123", username: "PandaBear" });
     expect(wrapper.element).toMatchSnapshot();
   });
 });
