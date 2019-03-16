@@ -1,13 +1,25 @@
-import { getters } from "@/store/auth";
+import { getters, state as stateFunc } from "@/store/auth";
 
 describe("Auth Getters", () => {
+  const state = stateFunc();
+
   test("signing up", () => {
-    const state = { signingUp: true };
-    expect(getters.signingUp(state)).toBe(true);
+    expect(getters.signingUp(state)).toBe(false);
   });
 
   test("signing in", () => {
-    const state = { signingIn: true };
-    expect(getters.signingIn(state)).toBe(true);
+    expect(getters.signingIn(state)).toBe(false);
+  });
+
+  test("sendingSignUp", () => {
+    expect(getters.sendingSignUp(state)).toBe(false);
+  });
+
+  test("signUpResult", () => {
+    expect(getters.signUpResult(state)).toBeNull();
+  });
+
+  test("signUpError", () => {
+    expect(getters.signUpError(state)).toBeNull();
   });
 });

@@ -1,15 +1,17 @@
 export const state = () => ({
   signingUp: false,
-  signingIn: false
+  signingIn: false,
+  sendingSignUp: false,
+  signUpResult: null,
+  signUpError: null
 });
 
 export const getters = {
-  signingUp: state => {
-    return state.signingUp;
-  },
-  signingIn: state => {
-    return state.signingIn;
-  }
+  signingUp: state => state.signingUp,
+  signingIn: state => state.signingIn,
+  sendingSignUp: state => state.sendingSignUp,
+  signUpResult: state => state.signUpResult,
+  signUpError: state => state.signUpError
 };
 
 export const mutations = {
