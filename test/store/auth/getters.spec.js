@@ -19,7 +19,19 @@ describe("Auth Getters", () => {
     expect(getters.currentUser(state)).toBeNull();
   });
 
-  test("signUpError", () => {
-    expect(getters.signUpError(state)).toBeNull();
+  test("signUpError - default", () => {
+    expect(getters.signUpError(state)).toEqual("");
+  });
+
+  test("signUpError - exists", () => {
+    const state = {
+      signUpError: {
+        error: {
+          message: "Some error"
+        }
+      }
+    };
+
+    expect(getters.signUpError(state)).toEqual("Some error");
   });
 });

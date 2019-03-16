@@ -39,7 +39,14 @@
           </div>
         </div>
       </div>
-      <AuthModal :active="signingUp" title="Sign Up" submit-text="Sign Up" @cancel="endSignUp" @submit="submitSignUp"/>
+      <AuthModal :active="signingUp"
+                 :loading="sendingSignUp"
+                 :errorMessage="signUpError"
+                 title="Sign Up"
+                 submit-text="Sign Up"
+                 @cancel="endSignUp"
+                 @submit="submitSignUp"
+      />
     </nav>
 </template>
 
@@ -50,7 +57,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   components: { AuthModal },
   computed: {
-    ...mapGetters("auth", ["signingUp"])
+    ...mapGetters("auth", ["signingUp", "signUpError", "sendingSignUp"])
   },
   methods: {
     ...mapActions("auth", ["startSignUp", "endSignUp", "submitSignUp"])

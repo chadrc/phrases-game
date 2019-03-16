@@ -106,6 +106,7 @@ exports[`MenuBar renders regular 1`] = `
    
   <authmodal-stub
     canceltext="Cancel"
+    errormessage=""
     submittext="Sign Up"
     title="Sign Up"
   />

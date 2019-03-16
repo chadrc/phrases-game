@@ -13,7 +13,13 @@ export const getters = {
   signingIn: state => state.signingIn,
   sendingSignUp: state => state.sendingSignUp,
   currentUser: state => state.currentUser,
-  signUpError: state => state.signUpError
+  signUpError: state => {
+    if (state.signUpError) {
+      return state.signUpError.error.message;
+    }
+
+    return "";
+  }
 };
 
 export const mutations = {
