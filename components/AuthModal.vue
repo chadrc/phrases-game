@@ -4,7 +4,7 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">{{ title }}</p></p>
-      <button class="delete" aria-label="close" @click="cancel()"></button>
+      <button class="delete" :disabled="loading" aria-label="close" @click="cancel()"></button>
     </header>
     <section class="modal-card-body">
       <div class="field">
@@ -21,8 +21,8 @@
       </div>
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-success" @click="submit()">{{ submitText }}</button>
-      <button class="button" @click="cancel()">{{ cancelText }}</button>
+      <button class="button is-success" :class="{'is-loading': loading}" @click="submit()">{{ submitText }}</button>
+      <button class="button" :disabled="loading" @click="cancel()">{{ cancelText }}</button>
     </footer>
   </div>
 </div>
@@ -44,6 +44,10 @@ export default {
       default: "Cancel"
     },
     active: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
       type: Boolean,
       default: false
     }

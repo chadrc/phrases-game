@@ -13,6 +13,10 @@ describe("SignUpModal", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
+  /**
+   * Snapshots
+   */
+
   test("renders regular", () => {
     const { wrapper } = makeVueMock(AuthModal, {
       propsData: {
@@ -47,6 +51,23 @@ describe("SignUpModal", () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  test("loading", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      propsData: {
+        title: "Auth Modal",
+        submitText: "Submit",
+        cancelText: "Don't Submit",
+        loading: true
+      }
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  /**
+   * Event Testing
+   */
 
   test("submit clicked", () => {
     const { wrapper } = makeVueMock(AuthModal, {
