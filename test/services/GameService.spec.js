@@ -7,6 +7,7 @@ describe("GameService", () => {
       expect(game.word).toBeTruthy();
       expect(game.characterGuesses).toEqual([]);
       expect(game.wordGuesses).toEqual([]);
+      done();
     });
   });
 });

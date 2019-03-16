@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Play View renders regular 1`] = `
+<section
+  class="container"
+>
+  <h1
+    class="title has-text-centered"
+  >
+    
+    Play
+  
+  </h1>
+   
+  <section
+    class="game-area"
+  >
+    <button
+      class="button is-primary is-large is-fullwidth"
+    >
+      
+      New Game
+    
+    </button>
+  </section>
+</section>
+`;
