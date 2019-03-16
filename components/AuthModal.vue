@@ -10,7 +10,7 @@
       <!-- Content ... -->
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-success">{{ submitText }}</button>
+      <button class="button is-success" @click="submit()">{{ submitText }}</button>
       <button class="button">{{ cancelText }}</button>
     </footer>
   </div>
@@ -39,6 +39,11 @@ export default {
       default: false
     }
   },
+  methods: {
+    submit() {
+      this.$emit("submit");
+    }
+  }
 };
 </script>
 

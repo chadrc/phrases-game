@@ -1,5 +1,6 @@
 import AuthModal from "@/components/AuthModal.vue";
 import { makeVueMock } from "@/test/utils";
+import sinon from "sinon";
 
 describe("SignUpModal", () => {
   test("is vue instance", () => {
@@ -38,5 +39,18 @@ describe("SignUpModal", () => {
     });
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  test("submit clicked", () => {
+    const { wrapper } = makeVueMock(AuthModal, {
+      title: "Auth Modal",
+      submitText: "Submit"
+    });
+
+    wrapper.find(".modal-card-foot > button:first-child").trigger("click");
+
+    const submitEmission = wrapper.emitted().submit;
+
+    expect(submitEmission).toBeTruthy();
   });
 });
