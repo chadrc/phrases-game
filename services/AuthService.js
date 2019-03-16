@@ -59,6 +59,22 @@ export const signOut = ({ accessToken }) => {
 };
 
 export const signIn = ({ username, password }) => {
+  if (!username) {
+    return Promise.resolve({
+      error: {
+        message: "username required"
+      }
+    });
+  }
+
+  if (!password) {
+    return Promise.resolve({
+      error: {
+        message: "password required"
+      }
+    });
+  }
+
   if (!accounts[username]) {
     return Promise.resolve({
       error: {

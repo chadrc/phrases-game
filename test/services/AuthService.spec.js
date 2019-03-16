@@ -84,4 +84,22 @@ describe("AuthService", () => {
       }
     );
   });
+
+  test("signIn - No username", done => {
+    AuthService.signIn({
+      password: "bamboo123"
+    }).then(response => {
+      expect(response.error.message).toEqual("username required");
+      done();
+    });
+  });
+
+  test("signIn - No password", done => {
+    AuthService.signIn({
+      username: "PandaBear"
+    }).then(response => {
+      expect(response.error.message).toEqual("password required");
+      done();
+    });
+  });
 });
