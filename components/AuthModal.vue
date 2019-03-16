@@ -30,12 +30,6 @@
 
 <script>
 export default {
-  data: () => {
-    return {
-      username: "",
-      password: ""
-    }
-  },
   props: {
     title: {
       type: String,
@@ -53,6 +47,12 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data: () => {
+    return {
+      username: "",
+      password: ""
+    };
   },
   methods: {
     submit() {

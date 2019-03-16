@@ -29,7 +29,47 @@ exports[`SignUpModal custom cancel text 1`] = `
      
     <section
       class="modal-card-body"
-    />
+    >
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Username
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Username"
+            type="text"
+          />
+        </div>
+      </div>
+       
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Password
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+      </div>
+    </section>
      
     <footer
       class="modal-card-foot"
@@ -79,7 +119,47 @@ exports[`SignUpModal renders active 1`] = `
      
     <section
       class="modal-card-body"
-    />
+    >
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Username
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Username"
+            type="text"
+          />
+        </div>
+      </div>
+       
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Password
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+      </div>
+    </section>
      
     <footer
       class="modal-card-foot"
@@ -129,7 +209,47 @@ exports[`SignUpModal renders regular 1`] = `
      
     <section
       class="modal-card-body"
-    />
+    >
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Username
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Username"
+            type="text"
+          />
+        </div>
+      </div>
+       
+      <div
+        class="field"
+      >
+        <label
+          class="label"
+        >
+          Password
+        </label>
+         
+        <div
+          class="control"
+        >
+          <input
+            class="input"
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+      </div>
+    </section>
      
     <footer
       class="modal-card-foot"

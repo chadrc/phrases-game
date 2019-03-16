@@ -40,20 +40,23 @@
         </div>
       </div>
     </nav>
-    <SignUpModal/>
+    <AuthModal :active="signingUp" title="Sign Up" submitText="Sign Up" @cancel="endSignUp()"/>
     <nuxt />
   </div>
 </template>
 
 <script>
-import SignUpModal from "@/components/SignUpModal";
-import { mapActions } from "vuex";
+import AuthModal from "@/components/AuthModal";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  components: { SignUpModal },
+  components: { AuthModal },
+  computed: {
+    ...mapGetters("auth", ["signingUp"])
+  },
   methods: {
-    ...mapActions("auth", ["startSignUp"])
-  }
+    ...mapActions("auth", ["startSignUp", "endSignUp"])
+  },
 };
 </script>
 
