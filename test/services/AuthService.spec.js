@@ -53,4 +53,24 @@ describe("AuthService", () => {
       done();
     });
   });
+
+  test("signIn - Before sign up", done => {
+    AuthService.signIn({ username: "PandaBear", password: "bamboo123" }).then(
+      response => {
+        expect(response.error.message).toEqual("account does not exist");
+        done();
+      }
+    );
+  });
+
+  // test("signIn - Success", done => {
+  //   AuthService.signIn({ username: "PandaBear", password: "bamboo123" }).then(
+  //     response => {
+  //       expect(response.id).toBeTruthy();
+  //       expect(response.accessToken).toBeTruthy();
+  //       expect(response.username).toEqual("PandaBear");
+  //       done();
+  //     }
+  //   );
+  // });
 });

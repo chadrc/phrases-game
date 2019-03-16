@@ -1,5 +1,7 @@
 import uuid from "uuid/v4";
 
+const accounts = {};
+
 export const signUp = ({ username, password }) => {
   if (!username) {
     return Promise.resolve({
@@ -50,4 +52,14 @@ export const signOut = ({ accessToken }) => {
       resolve({});
     }, 500);
   });
+};
+
+export const signIn = ({ username, password }) => {
+  if (!accounts[username]) {
+    return Promise.resolve({
+      error: {
+        message: "account does not exist"
+      }
+    });
+  }
 };
