@@ -8,6 +8,16 @@ const actions = makeActions({
       accessToken: "987",
       username
     });
+  },
+  signOut: ({ accessToken }) => {
+    if (!accessToken) {
+      return Promise.resolve({
+        error: {
+          message: "access token required"
+        }
+      });
+    }
+    return Promise.resolve({});
   }
 });
 
@@ -106,16 +116,10 @@ describe("Auth Actions", () => {
   });
 
   test("signOut - Success", done => {
-    const actions = makeActions({
-      signOut: ({ accessToken }) => {
-        return Promise.resolve({});
-      }
-    });
-
     testAction(
       actions.submitSignOut,
-      { username: "PandaBear", password: "bamboo123" },
       {},
+      { currentUser: { accessToken: "123" } },
       [
         { type: "setSendingSignOut", payload: true },
         {
@@ -126,5 +130,9 @@ describe("Auth Actions", () => {
       ],
       done
     );
+  });
+
+  test("signOut - No current user", done => {
+    testAction(actions.submitSignOut, {}, {}, [], done);
   });
 });

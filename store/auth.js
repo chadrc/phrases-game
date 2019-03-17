@@ -6,7 +6,8 @@ export const state = () => ({
   sendingSignUp: false,
   sendingSignOut: false,
   currentUser: null,
-  signUpError: null
+  signUpError: null,
+  signOutError: null
 });
 
 export const getters = {
@@ -15,6 +16,13 @@ export const getters = {
   sendingSignUp: state => state.sendingSignUp,
   sendingSignOut: state => state.sendingSignOut,
   currentUser: state => state.currentUser,
+  signOutError: state => {
+    if (state.signOutError) {
+      return state.signOutError.error.message;
+    }
+
+    return "";
+  },
   signUpError: state => {
     if (state.signUpError) {
       return state.signUpError.error.message;
@@ -42,6 +50,9 @@ export const mutations = {
   },
   setSendingSignOut: (state, val) => {
     state.sendingSignOut = val;
+  },
+  setSignOutError: (state, error) => {
+    state.signOutError = error;
   }
 };
 
@@ -81,11 +92,21 @@ export const makeActions = authService => {
       commit("setSendingSignUp", false);
     },
     submitSignOut: async ({ commit, state }) => {
+      if (!state.currentUser) {
+        return;
+      }
+
       commit("setSendingSignOut", true);
 
-      await authService.signOut({ accessToken: state.accessToken });
+      const signOutResponse = await authService.signOut({
+        accessToken: state.currentUser.accessToken
+      });
 
-      commit("setCurrentUser", null);
+      if (signOutResponse.error) {
+        commit("setSignOutError", signOutResponse);
+      } else {
+        commit("setCurrentUser", null);
+      }
 
       commit("setSendingSignOut", false);
     }
