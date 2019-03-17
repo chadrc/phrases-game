@@ -11,7 +11,7 @@ describe("GameService", () => {
     const startGameResponse = await gameService.startGame();
 
     expect(startGameResponse.id).toBeTruthy();
-    expect(startGameResponse.word).toBeTruthy();
+    expect(startGameResponse.word).toEqual("Polar Bear");
     expect(startGameResponse.characterGuesses).toEqual([]);
     expect(startGameResponse.wordGuesses).toEqual([]);
   });

@@ -19,7 +19,7 @@ export default class GameService {
 
     const newGame = {
       id: uuid(),
-      word: "Hello",
+      word: "Polar Bear",
       characterGuesses: [],
       wordGuesses: []
     };
