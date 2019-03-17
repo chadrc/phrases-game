@@ -104,4 +104,27 @@ describe("Auth Actions", () => {
       done
     );
   });
+
+  test("signOut - Success", done => {
+    const actions = makeActions({
+      signOut: ({ accessToken }) => {
+        return Promise.resolve({});
+      }
+    });
+
+    testAction(
+      actions.submitSignOut,
+      { username: "PandaBear", password: "bamboo123" },
+      {},
+      [
+        { type: "setSendingSignOut", payload: true },
+        {
+          type: "setCurrentUser",
+          payload: null
+        },
+        { type: "setSendingSignOut", payload: false }
+      ],
+      done
+    );
+  });
 });
