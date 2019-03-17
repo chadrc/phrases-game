@@ -3,7 +3,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">{{ title }}</p></p>
+      <p class="modal-card-title">{{ title }}</p>
       <button class="delete" :disabled="loading" aria-label="close" @click="cancel()"></button>
     </header>
     <section class="modal-card-body">

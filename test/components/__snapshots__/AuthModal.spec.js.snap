@@ -19,7 +19,6 @@ exports[`SignUpModal custom cancel text 1`] = `
       >
         Auth Modal
       </p>
-      <p />
        
       <button
         aria-label="close"
@@ -111,7 +110,6 @@ exports[`SignUpModal error message 1`] = `
       >
         Auth Modal
       </p>
-      <p />
        
       <button
         aria-label="close"
@@ -213,7 +211,6 @@ exports[`SignUpModal loading 1`] = `
       >
         Auth Modal
       </p>
-      <p />
        
       <button
         aria-label="close"
@@ -307,7 +304,6 @@ exports[`SignUpModal renders active 1`] = `
       >
         Auth Modal
       </p>
-      <p />
        
       <button
         aria-label="close"
@@ -399,7 +395,6 @@ exports[`SignUpModal renders regular 1`] = `
       >
         Auth Modal
       </p>
-      <p />
        
       <button
         aria-label="close"
