@@ -146,6 +146,7 @@ describe("Auth Actions", () => {
         });
       }
     });
+
     testAction(
       actions.submitSignOut,
       {},
