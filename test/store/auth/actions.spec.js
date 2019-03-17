@@ -135,4 +135,34 @@ describe("Auth Actions", () => {
   test("signOut - No current user", done => {
     testAction(actions.submitSignOut, {}, {}, [], done);
   });
+
+  test("signOut - General error", done => {
+    const actions = makeActions({
+      signOut: () => {
+        return Promise.resolve({
+          error: {
+            message: "access token required"
+          }
+        });
+      }
+    });
+    testAction(
+      actions.submitSignOut,
+      {},
+      { currentUser: { accessToken: "123" } },
+      [
+        { type: "setSendingSignOut", payload: true },
+        {
+          type: "setSignOutError",
+          payload: {
+            error: {
+              message: "access token required"
+            }
+          }
+        },
+        { type: "setSendingSignOut", payload: false }
+      ],
+      done
+    );
+  });
 });
