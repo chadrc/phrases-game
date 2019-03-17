@@ -93,14 +93,14 @@ exports[`MenuBar has user - signing out 1`] = `
             </strong>
           </button>
            
-          <a
+          <button
             class="button is-light"
             style="display: none;"
           >
             
-            Log in
+            Sign in
           
-          </a>
+          </button>
            
           <button
             class="button is-primary is-loading"
@@ -118,8 +118,8 @@ exports[`MenuBar has user - signing out 1`] = `
   <authmodal-stub
     canceltext="Cancel"
     errormessage=""
-    submittext="Sign Up"
-    title="Sign Up"
+    submittext=""
+    title=""
   />
 </nav>
 `;
@@ -217,14 +217,14 @@ exports[`MenuBar has user 1`] = `
             </strong>
           </button>
            
-          <a
+          <button
             class="button is-light"
             style="display: none;"
           >
             
-            Log in
+            Sign in
           
-          </a>
+          </button>
            
           <button
             class="button is-primary"
@@ -242,8 +242,8 @@ exports[`MenuBar has user 1`] = `
   <authmodal-stub
     canceltext="Cancel"
     errormessage=""
-    submittext="Sign Up"
-    title="Sign Up"
+    submittext=""
+    title=""
   />
 </nav>
 `;
@@ -340,13 +340,13 @@ exports[`MenuBar renders regular 1`] = `
             </strong>
           </button>
            
-          <a
+          <button
             class="button is-light"
           >
             
-            Log in
+            Sign in
           
-          </a>
+          </button>
            
           <button
             class="button is-primary"
@@ -364,8 +364,8 @@ exports[`MenuBar renders regular 1`] = `
   <authmodal-stub
     canceltext="Cancel"
     errormessage=""
-    submittext="Sign Up"
-    title="Sign Up"
+    submittext=""
+    title=""
   />
 </nav>
 `;

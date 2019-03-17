@@ -34,9 +34,11 @@
                       @click="startSignUp">
                 <strong>Sign up</strong>
               </button>
-              <a v-show="!currentUser" class="button is-light">
-                Log in
-              </a>
+              <button v-show="!currentUser"
+                      class="button is-light"
+                      @click="startSignIn">
+                Sign in
+              </button>
               <button v-show="currentUser"
                       class="button is-primary"
                       :class="{'is-loading': sendingSignOut}"
@@ -47,13 +49,13 @@
           </div>
         </div>
       </div>
-      <AuthModal :active="signingUp"
-                 :loading="sendingSignUp"
-                 :error-message="signUpError"
-                 title="Sign Up"
-                 submit-text="Sign Up"
-                 @cancel="endSignUp"
-                 @submit="submitSignUp"
+      <AuthModal :active="authActive"
+                 :loading="authLoading"
+                 :error-message="authError"
+                 :title="authText"
+                 :submit-text="authText"
+                 @cancel="cancelAuth"
+                 @submit="submitAuth"
       />
     </nav>
 </template>
@@ -67,19 +69,57 @@ export default {
   computed: {
     ...mapGetters("auth", [
       "signingUp",
+      "signingIn",
       "signUpError",
+      "signInError",
       "sendingSignUp",
+      "sendingSignIn",
       "sendingSignOut",
       "currentUser"
-    ])
+    ]),
+    authActive() {
+      return this.signingUp || this.signingIn;
+    },
+    authLoading() {
+      return this.sendingSignUp || this.sendingSignIn;
+    },
+    authError() {
+      return this.signUpError || this.signInError;
+    },
+    authText() {
+      if (this.signingUp) {
+        return "Sign Up";
+      } else if (this.signingIn) {
+        return "Sign In";
+      }
+
+      return "";
+    }
   },
   methods: {
     ...mapActions("auth", [
       "startSignUp",
+      "startSignIn",
       "endSignUp",
+      "endSignIn",
       "submitSignUp",
+      "submitSignIn",
       "submitSignOut"
-    ])
+    ]),
+    cancelAuth() {
+      if (this.signingUp) {
+        this.endSignUp();
+      } else if (this.signingIn) {
+        this.endSignIn();
+      }
+    },
+    submitAuth(data) {
+      if (this.signingUp) {
+        this.submitSignUp(data);
+      } else if (this.signingIn) {
+        this.submitSignIn(data);
+      }
+    }
   }
 };
 </script>
