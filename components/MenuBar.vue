@@ -37,6 +37,12 @@
               <a class="button is-light" v-show="!currentUser">
                 Log in
               </a>
+              <button class="button is-primary"
+                      :class="{'is-loading': sendingSignOut}"
+                      v-show="currentUser"
+                      @click="submitSignOut">
+                <strong>Sign Out</strong>
+              </button>
             </div>
           </div>
         </div>
@@ -59,14 +65,24 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   components: { AuthModal },
   computed: {
-    ...mapGetters("auth", ["signingUp", "signUpError", "sendingSignUp", "currentUser"])
+    ...mapGetters("auth", [
+      "signingUp",
+      "signUpError",
+      "sendingSignUp",
+      "sendingSignOut",
+      "currentUser"
+    ])
   },
   methods: {
-    ...mapActions("auth", ["startSignUp", "endSignUp", "submitSignUp"])
-  },
+    ...mapActions("auth", [
+      "startSignUp",
+      "endSignUp",
+      "submitSignUp",
+      "submitSignOut"
+    ])
+  }
 };
 </script>
 
 <style scoped>
-
 </style>

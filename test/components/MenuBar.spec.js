@@ -18,4 +18,10 @@ describe("MenuBar", () => {
     store.commit("auth/setCurrentUser", { id: "123", username: "PandaBear" });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  test("has user - signing out", () => {
+    store.commit("auth/setCurrentUser", { id: "123", username: "PandaBear" });
+    store.commit("auth/setSendingSignOut", true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
