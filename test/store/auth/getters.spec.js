@@ -15,6 +15,10 @@ describe("Auth Getters", () => {
     expect(getters.sendingSignUp(state)).toBe(false);
   });
 
+  test("sendingSignOut", () => {
+    expect(getters.sendingSignOut(state)).toBe(false);
+  });
+
   test("currentUser", () => {
     expect(getters.currentUser(state)).toBeNull();
   });
