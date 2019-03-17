@@ -34,4 +34,20 @@ describe("Auth Getters", () => {
 
     expect(getters.signUpError(state)).toEqual("Some error");
   });
+
+  test("signOutError - default", () => {
+    expect(getters.signOutError(state)).toEqual("");
+  });
+
+  test("signOutError - exists", () => {
+    const state = {
+      signOutError: {
+        error: {
+          message: "Some error"
+        }
+      }
+    };
+
+    expect(getters.signOutError(state)).toEqual("Some error");
+  });
 });
