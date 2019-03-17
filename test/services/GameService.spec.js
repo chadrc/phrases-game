@@ -1,13 +1,12 @@
 import * as GameService from "@/services/GameService";
 
 describe("GameService", () => {
-  test("startGame", done => {
-    GameService.startGame().then(game => {
-      expect(game.id).toBeTruthy();
-      expect(game.word).toBeTruthy();
-      expect(game.characterGuesses).toEqual([]);
-      expect(game.wordGuesses).toEqual([]);
-      done();
-    });
+  test("startGame", async () => {
+    const startGameResponse = await GameService.startGame();
+
+    expect(startGameResponse.id).toBeTruthy();
+    expect(startGameResponse.word).toBeTruthy();
+    expect(startGameResponse.characterGuesses).toEqual([]);
+    expect(startGameResponse.wordGuesses).toEqual([]);
   });
 });
