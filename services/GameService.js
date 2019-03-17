@@ -26,6 +26,11 @@ export default class GameService {
 
     this._games[newGame.id] = newGame;
 
-    return Promise.resolve(newGame);
+    const responseGame = {
+      ...newGame,
+      word: newGame.word.replace(/[a-zA-Z]/g, "_")
+    };
+
+    return Promise.resolve(responseGame);
   }
 }
