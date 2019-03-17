@@ -18,6 +18,13 @@ const actions = makeActions({
       });
     }
     return Promise.resolve({});
+  },
+  signIn: ({ username, password }) => {
+    return Promise.resolve({
+      id: "123",
+      accessToken: "987",
+      username
+    });
   }
 });
 
@@ -162,6 +169,59 @@ describe("Auth Actions", () => {
           }
         },
         { type: "setSendingSignOut", payload: false }
+      ],
+      done
+    );
+  });
+
+  test("submitSignIn - Success", done => {
+    testAction(
+      actions.submitSignIn,
+      { username: "PandaBear", password: "bamboo123" },
+      {},
+      [
+        {
+          type: "setSignInError",
+          payload: null
+        },
+        { type: "setSendingSignIn", payload: true },
+        {
+          type: "setCurrentUser",
+          payload: { id: "123", username: "PandaBear", accessToken: "987" }
+        },
+        { type: "setSigningIn", payload: false },
+        { type: "setSendingSignIn", payload: false }
+      ],
+      done
+    );
+  });
+
+  test("submitSignIn - Error", done => {
+    const actions = makeActions({
+      signIn: ({ username, password }) => {
+        return Promise.resolve({
+          error: {
+            message: "Invalid password"
+          }
+        });
+      }
+    });
+
+    testAction(
+      actions.submitSignIn,
+      { username: "PandaBear", password: "bamboo123" },
+      {},
+      [
+        {
+          type: "setSignInError",
+          payload: null
+        },
+        { type: "setSendingSignIn", payload: true },
+        {
+          type: "setSignInError",
+          payload: { error: { message: "Invalid password" } }
+        },
+        { type: "setSendingSignIn", payload: false }
       ],
       done
     );

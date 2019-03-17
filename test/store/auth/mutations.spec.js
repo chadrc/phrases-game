@@ -63,6 +63,15 @@ describe("Auth Mutations", () => {
     expect(state.signUpError).toEqual({ error: "not ok" });
   });
 
+  test("setSignInError", () => {
+    const state = { currentUser: null, signInError: null };
+
+    mutations.setSignInError(state, { error: { message: "not ok" } });
+
+    expect(state.currentUser).toBeNull();
+    expect(state.signInError).toEqual({ error: { message: "not ok" } });
+  });
+
   test("setSignOutError", () => {
     const state = { currentUser: null, signOutError: null };
 

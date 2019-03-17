@@ -3,16 +3,19 @@ import * as AuthService from "@/services/AuthService";
 export const state = () => ({
   signingUp: false,
   signingIn: false,
+  sendingSignIn: false,
   sendingSignUp: false,
   sendingSignOut: false,
   currentUser: null,
   signUpError: null,
-  signOutError: null
+  signOutError: null,
+  signInError: null
 });
 
 export const getters = {
   signingUp: state => state.signingUp,
   signingIn: state => state.signingIn,
+  sendingSignIn: state => state.sendingSignIn,
   sendingSignUp: state => state.sendingSignUp,
   sendingSignOut: state => state.sendingSignOut,
   currentUser: state => state.currentUser,
@@ -26,6 +29,13 @@ export const getters = {
   signUpError: state => {
     if (state.signUpError) {
       return state.signUpError.error.message;
+    }
+
+    return "";
+  },
+  signInError: state => {
+    if (state.signInError) {
+      return state.signInError.error.message;
     }
 
     return "";
@@ -53,6 +63,9 @@ export const mutations = {
   },
   setSignOutError: (state, error) => {
     state.signOutError = error;
+  },
+  setSignInError: (state, error) => {
+    state.signInError = error;
   }
 };
 
@@ -90,6 +103,27 @@ export const makeActions = authService => {
 
       // no longer waiting for response
       commit("setSendingSignUp", false);
+    },
+    submitSignIn: async ({ commit }, { username, password }) => {
+      // clear error if we have one
+      commit("setSignInError", null);
+
+      // waiting for sign up response flag
+      commit("setSendingSignIn", true);
+
+      const signInResponse = await authService.signIn({ username, password });
+
+      // set error if present
+      if (signInResponse.error) {
+        commit("setSignInError", signInResponse);
+      } else {
+        // otherwise set user and end sign up proccess
+        commit("setCurrentUser", signInResponse);
+        commit("setSigningIn", false);
+      }
+
+      // no longer waiting for response
+      commit("setSendingSignIn", false);
     },
     submitSignOut: async ({ commit, state }) => {
       if (!state.currentUser) {

@@ -19,6 +19,10 @@ describe("Auth Getters", () => {
     expect(getters.sendingSignOut(state)).toBe(false);
   });
 
+  test("sendingSignIn", () => {
+    expect(getters.sendingSignIn(state)).toBe(false);
+  });
+
   test("currentUser", () => {
     expect(getters.currentUser(state)).toBeNull();
   });
@@ -37,6 +41,22 @@ describe("Auth Getters", () => {
     };
 
     expect(getters.signUpError(state)).toEqual("Some error");
+  });
+
+  test("signInError - default", () => {
+    expect(getters.signInError(state)).toEqual("");
+  });
+
+  test("signInError - exists", () => {
+    const state = {
+      signInError: {
+        error: {
+          message: "Some error"
+        }
+      }
+    };
+
+    expect(getters.signInError(state)).toEqual("Some error");
   });
 
   test("signOutError - default", () => {
