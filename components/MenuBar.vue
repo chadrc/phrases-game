@@ -29,17 +29,17 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <button class="button is-primary"
-                      v-show="!currentUser"
+              <button v-show="!currentUser"
+                      class="button is-primary"
                       @click="startSignUp">
                 <strong>Sign up</strong>
               </button>
-              <a class="button is-light" v-show="!currentUser">
+              <a v-show="!currentUser" class="button is-light">
                 Log in
               </a>
-              <button class="button is-primary"
+              <button v-show="currentUser"
+                      class="button is-primary"
                       :class="{'is-loading': sendingSignOut}"
-                      v-show="currentUser"
                       @click="submitSignOut">
                 <strong>Sign Out</strong>
               </button>
@@ -49,7 +49,7 @@
       </div>
       <AuthModal :active="signingUp"
                  :loading="sendingSignUp"
-                 :errorMessage="signUpError"
+                 :error-message="signUpError"
                  title="Sign Up"
                  submit-text="Sign Up"
                  @cancel="endSignUp"

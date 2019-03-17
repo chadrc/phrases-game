@@ -57,7 +57,8 @@ export default {
       default: false
     },
     errorMessage: {
-      type: String
+      type: String,
+      default: null
     }
   },
   data: () => {
@@ -68,7 +69,10 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit("submit", { username: this.username, password: this.password });
+      this.$emit("submit", {
+        username: this.username,
+        password: this.password
+      });
     },
     cancel() {
       this.$emit("cancel");
