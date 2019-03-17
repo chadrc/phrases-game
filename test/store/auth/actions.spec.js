@@ -44,7 +44,7 @@ describe("Auth Actions", () => {
       actions.endSignUp,
       null,
       {},
-      [{ type: "setSigningUp", payload: false }],
+      [{ type: "clearErrors" }, { type: "setSigningUp", payload: false }],
       done
     );
   });
@@ -64,7 +64,7 @@ describe("Auth Actions", () => {
       actions.endSignIn,
       null,
       {},
-      [{ type: "setSigningIn", payload: false }],
+      [{ type: "clearErrors" }, { type: "setSigningIn", payload: false }],
       done
     );
   });

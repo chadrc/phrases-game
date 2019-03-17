@@ -23,6 +23,20 @@ describe("Auth Mutations", () => {
     expect(state.signingIn).toBe(true);
   });
 
+  test("clearErrors", () => {
+    const state = {
+      signUpError: { error: { message: "not ok" } },
+      signInError: { error: { message: "not ok" } },
+      signOutError: { error: { message: "not ok" } }
+    };
+
+    mutations.clearErrors(state);
+
+    expect(state.signUpError).toBeNull();
+    expect(state.signInError).toBeNull();
+    expect(state.signOutError).toBeNull();
+  });
+
   test("setSendingSignUp", () => {
     const state = { sendingSignUp: false };
     mutations.setSendingSignUp(state, true);

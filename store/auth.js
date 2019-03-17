@@ -66,6 +66,11 @@ export const mutations = {
   },
   setSignInError: (state, error) => {
     state.signInError = error;
+  },
+  clearErrors: state => {
+    state.signUpError = null;
+    state.signInError = null;
+    state.signOutError = null;
   }
 };
 
@@ -75,12 +80,14 @@ export const makeActions = authService => {
       commit("setSigningUp", true);
     },
     endSignUp: ({ commit }) => {
+      commit("clearErrors");
       commit("setSigningUp", false);
     },
     startSignIn: ({ commit }) => {
       commit("setSigningIn", true);
     },
     endSignIn: ({ commit }) => {
+      commit("clearErrors");
       commit("setSigningIn", false);
     },
     submitSignUp: async ({ commit }, { username, password }) => {
