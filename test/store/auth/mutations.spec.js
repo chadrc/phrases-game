@@ -34,6 +34,17 @@ describe("Auth Mutations", () => {
     expect(state.sendingSignUp).toBe(false);
   });
 
+  test("setSendingSignOut", () => {
+    const state = { sendingSignOut: false };
+    mutations.setSendingSignOut(state, true);
+
+    expect(state.sendingSignOut).toBe(true);
+
+    mutations.setSendingSignOut(state, false);
+
+    expect(state.sendingSignOut).toBe(false);
+  });
+
   test("setCurrentUser", () => {
     const state = { currentUser: null, signUpError: null };
 
@@ -50,5 +61,14 @@ describe("Auth Mutations", () => {
 
     expect(state.currentUser).toBeNull();
     expect(state.signUpError).toEqual({ error: "not ok" });
+  });
+
+  test("setSignOutError", () => {
+    const state = { currentUser: null, signOutError: null };
+
+    mutations.setSignOutError(state, { error: { message: "not ok" } });
+
+    expect(state.currentUser).toBeNull();
+    expect(state.signOutError).toEqual({ error: { message: "not ok" } });
   });
 });
