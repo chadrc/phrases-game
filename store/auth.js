@@ -1,4 +1,4 @@
-import * as AuthService from "@/services/AuthService";
+import AuthService from "@/services/AuthService";
 
 export const state = () => ({
   signingUp: false,
@@ -154,4 +154,4 @@ export const makeActions = authService => {
   };
 };
 
-export const actions = makeActions(AuthService);
+export const actions = makeActions(new AuthService());

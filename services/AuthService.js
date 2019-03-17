@@ -1,91 +1,101 @@
 import uuid from "uuid/v4";
 
-const accounts = {};
+export default class AuthService {
+  _accounts = {};
+  _currentAccountUsername = null;
+  _currentAccessToken = null;
 
-export const signUp = ({ username, password }) => {
-  if (!username) {
-    return Promise.resolve({
-      error: {
-        message: "username required"
-      }
+  get currentAccessToken() {
+    return this._currentAccessToken;
+  }
+
+  signUp({ username, password }) {
+    if (!username) {
+      return Promise.resolve({
+        error: {
+          message: "username required"
+        }
+      });
+    }
+
+    if (!password) {
+      return Promise.resolve({
+        error: {
+          message: "password required"
+        }
+      });
+    }
+
+    if (password === "password") {
+      return Promise.resolve({
+        error: {
+          message: "Invalid Password"
+        }
+      });
+    }
+
+    this._currentAccessToken = uuid();
+
+    const account = {
+      id: uuid(),
+      username
+    };
+
+    this._currentAccountUsername = username;
+    this._accounts[username] = account;
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(account);
+      }, 1000);
     });
   }
 
-  if (!password) {
-    return Promise.resolve({
-      error: {
-        message: "password required"
-      }
+  signOut() {
+    if (!this._currentAccessToken) {
+      return Promise.resolve({
+        error: {
+          message: "not currently logged in"
+        }
+      });
+    }
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({});
+      }, 500);
     });
   }
 
-  if (password === "password") {
-    return Promise.resolve({
-      error: {
-        message: "Invalid Password"
-      }
+  signIn({ username, password }) {
+    if (!username) {
+      return Promise.resolve({
+        error: {
+          message: "username required"
+        }
+      });
+    }
+
+    if (!password) {
+      return Promise.resolve({
+        error: {
+          message: "password required"
+        }
+      });
+    }
+
+    if (!this._accounts[username]) {
+      return Promise.resolve({
+        error: {
+          message: "account does not exist"
+        }
+      });
+    }
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this._accounts[username]);
+      }, 500);
     });
   }
-
-  const account = {
-    id: uuid(),
-    accessToken: uuid(),
-    username
-  };
-
-  accounts[account.username] = account;
-
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(account);
-    }, 1000);
-  });
-};
-
-export const signOut = ({ accessToken }) => {
-  if (!accessToken) {
-    return Promise.resolve({
-      error: {
-        message: "access token required"
-      }
-    });
-  }
-
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve({});
-    }, 500);
-  });
-};
-
-export const signIn = ({ username, password }) => {
-  if (!username) {
-    return Promise.resolve({
-      error: {
-        message: "username required"
-      }
-    });
-  }
-
-  if (!password) {
-    return Promise.resolve({
-      error: {
-        message: "password required"
-      }
-    });
-  }
-
-  if (!accounts[username]) {
-    return Promise.resolve({
-      error: {
-        message: "account does not exist"
-      }
-    });
-  }
-
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(accounts[username]);
-    }, 500);
-  });
-};
+}
