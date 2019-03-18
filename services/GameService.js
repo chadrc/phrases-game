@@ -26,7 +26,8 @@ export default class GameService {
         id: uuid(),
         word: "Polar Bear",
         characterGuesses: [],
-        wordGuesses: []
+        wordGuesses: [],
+        won: false
       };
 
       this._games[newGame.id] = newGame;
@@ -50,13 +51,24 @@ export default class GameService {
         // character guess
         game.characterGuesses.push(guess.toLowerCase());
 
-        word = this.redactWord(game.word, game.characterGuesses);
+        const result = this.redactWord(game.word, game.characterGuesses);
+
+        if (result.allGuessed === true) {
+          game.won = true;
+        }
+
+        word = result.word;
       } else {
         // word guess
         game.wordGuesses.push(guess);
 
         if (game.word.toLowerCase() !== guess.toLowerCase()) {
-          word = this.redactWord(game.word, game.characterGuesses);
+          // incorrect
+          const result = this.redactWord(game.word, game.characterGuesses);
+          word = result.word;
+        } else {
+          // correct
+          game.won = true;
         }
       }
 
@@ -70,6 +82,9 @@ export default class GameService {
   redactWord(word, characterGuesses) {
     const characters = word.split("");
 
+    let charCount = 0;
+    let guessedCount = 0;
+
     for (let i = 0; i < characters.length; i++) {
       const c = characters[i];
 
@@ -78,13 +93,20 @@ export default class GameService {
         continue;
       }
 
+      charCount++;
+
       if (characterGuesses.indexOf(c.toLowerCase()) === -1) {
         // haven't guessed charcter
         // redact from returned word
         characters[i] = "_";
+      } else {
+        guessedCount++;
       }
     }
 
-    return characters.join("");
+    return {
+      word: characters.join(""),
+      allGuessed: charCount === guessedCount
+    };
   }
 }

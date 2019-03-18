@@ -18,6 +18,7 @@ describe("GameService", () => {
     expect(startGameResponse.word).toEqual("_____ ____");
     expect(startGameResponse.characterGuesses).toEqual([]);
     expect(startGameResponse.wordGuesses).toEqual([]);
+    expect(startGameResponse.won).toEqual(false);
   });
 
   test("startGame - no access", async () => {
@@ -42,6 +43,7 @@ describe("GameService", () => {
     expect(guessResponse.word).toEqual("_____ B___");
     expect(guessResponse.characterGuesses).toEqual(["b"]);
     expect(guessResponse.wordGuesses).toEqual([]);
+    expect(guessResponse.won).toEqual(false);
   });
 
   test("makeGuess - incorrect", async () => {
@@ -58,6 +60,7 @@ describe("GameService", () => {
     expect(guessResponse.word).toEqual("_____ ____");
     expect(guessResponse.characterGuesses).toEqual(["z"]);
     expect(guessResponse.wordGuesses).toEqual([]);
+    expect(guessResponse.won).toEqual(false);
   });
 
   test("makeGuess - all letters", async () => {
@@ -107,6 +110,7 @@ describe("GameService", () => {
       "e"
     ]);
     expect(guessResponse.wordGuesses).toEqual([]);
+    expect(guessResponse.won).toEqual(true);
   });
 
   test("makeGuess - correct word", async () => {
@@ -123,6 +127,7 @@ describe("GameService", () => {
     expect(guessResponse.word).toEqual("Polar Bear");
     expect(guessResponse.characterGuesses).toEqual([]);
     expect(guessResponse.wordGuesses).toEqual(["polar bear"]);
+    expect(guessResponse.won).toEqual(true);
   });
 
   test("makeGuess - incorrect word", async () => {
@@ -139,5 +144,6 @@ describe("GameService", () => {
     expect(guessResponse.word).toEqual("_____ ____");
     expect(guessResponse.characterGuesses).toEqual([]);
     expect(guessResponse.wordGuesses).toEqual(["panda bear"]);
+    expect(guessResponse.won).toEqual(false);
   });
 });
