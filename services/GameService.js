@@ -43,6 +43,22 @@ export default class GameService {
 
   makeGuess({ gameId, guess }) {
     return this.withAuth(() => {
+      if (!gameId) {
+        return Promise.resolve({
+          error: {
+            message: "game id required"
+          }
+        });
+      }
+
+      if (!guess) {
+        return Promise.resolve({
+          error: {
+            message: "guess required"
+          }
+        });
+      }
+
       const game = this._games[gameId];
 
       let word = game.word;

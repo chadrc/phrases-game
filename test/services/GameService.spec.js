@@ -146,4 +146,28 @@ describe("GameService", () => {
     expect(guessResponse.wordGuesses).toEqual(["panda bear"]);
     expect(guessResponse.won).toEqual(false);
   });
+
+  test("makeGuess - no game id", async () => {
+    const gameService = gameServiceWithAccess();
+
+    await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      guess: "b"
+    });
+
+    expect(guessResponse.error.message).toEqual("game id required");
+  });
+
+  test("makeGuess - no guess", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const { id } = await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      gameId: id
+    });
+
+    expect(guessResponse.error.message).toEqual("guess required");
+  });
 });
