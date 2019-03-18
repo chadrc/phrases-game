@@ -111,6 +111,10 @@ export default class GameService {
     });
   }
 
+  getGames() {
+    return Promise.resolve(Object.values(this._games));
+  }
+
   redactWord(word, characterGuesses) {
     const characters = word.split("");
 

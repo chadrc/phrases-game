@@ -196,4 +196,29 @@ describe("GameService", () => {
 
     expect(guessResponse.error.message).toEqual("must guess a letter A-Z");
   });
+
+  test("getGames - no games", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const getGamesResponse = await gameService.getGames();
+
+    expect(getGamesResponse).toEqual([]);
+  });
+
+  test("getGames - have games", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const start1 = await gameService.startGame();
+    const start2 = await gameService.startGame();
+    const start3 = await gameService.startGame();
+
+    const getGamesResponse = await gameService.getGames();
+
+    const findGame = toFind =>
+      getGamesResponse.find(game => game.id === toFind.id);
+
+    expect(findGame(start1)).toBeTruthy();
+    expect(findGame(start2)).toBeTruthy();
+    expect(findGame(start3)).toBeTruthy();
+  });
 });
