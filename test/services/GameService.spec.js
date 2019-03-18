@@ -59,4 +59,53 @@ describe("GameService", () => {
     expect(guessResponse.characterGuesses).toEqual(["z"]);
     expect(guessResponse.wordGuesses).toEqual([]);
   });
+
+  test("makeGuess - complete", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const { id } = await gameService.startGame();
+
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "p"
+    });
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "o"
+    });
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "l"
+    });
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "a"
+    });
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "r"
+    });
+
+    await gameService.makeGuess({
+      gameId: id,
+      guess: "b"
+    });
+    const guessResponse = await gameService.makeGuess({
+      gameId: id,
+      guess: "e"
+    });
+
+    expect(guessResponse.id).toBeTruthy();
+    expect(guessResponse.word).toEqual("Polar Bear");
+    expect(guessResponse.characterGuesses).toEqual([
+      "p",
+      "o",
+      "l",
+      "a",
+      "r",
+      "b",
+      "e"
+    ]);
+    expect(guessResponse.wordGuesses).toEqual([]);
+  });
 });
