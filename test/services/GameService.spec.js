@@ -60,7 +60,7 @@ describe("GameService", () => {
     expect(guessResponse.wordGuesses).toEqual([]);
   });
 
-  test("makeGuess - complete", async () => {
+  test("makeGuess - all letters", async () => {
     const gameService = gameServiceWithAccess();
 
     const { id } = await gameService.startGame();
@@ -107,5 +107,21 @@ describe("GameService", () => {
       "e"
     ]);
     expect(guessResponse.wordGuesses).toEqual([]);
+  });
+
+  test("makeGuess - correct word", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const { id } = await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      gameId: id,
+      guess: "polar bear"
+    });
+
+    expect(guessResponse.id).toBeTruthy();
+    expect(guessResponse.word).toEqual("Polar Bear");
+    expect(guessResponse.characterGuesses).toEqual([]);
+    expect(guessResponse.wordGuesses).toEqual(["polar bear"]);
   });
 });

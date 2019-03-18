@@ -44,29 +44,41 @@ export default class GameService {
     return this.withAuth(() => {
       const game = this._games[gameId];
 
-      game.characterGuesses.push(guess.toLowerCase());
+      if (guess.length === 1) {
+        // character guess
+        game.characterGuesses.push(guess.toLowerCase());
 
-      const characters = game.word.split("");
+        const characters = game.word.split("");
 
-      for (let i = 0; i < characters.length; i++) {
-        const c = characters[i];
+        for (let i = 0; i < characters.length; i++) {
+          const c = characters[i];
 
-        // skip non alpha
-        if (!c.match(/[a-zA-Z]/)) {
-          continue;
+          // skip non alpha
+          if (!c.match(/[a-zA-Z]/)) {
+            continue;
+          }
+
+          if (game.characterGuesses.indexOf(c.toLowerCase()) === -1) {
+            // haven't guessed charcter
+            // redact from returned word
+            characters[i] = "_";
+          }
         }
 
-        if (game.characterGuesses.indexOf(c.toLowerCase()) === -1) {
-          // haven't guessed charcter
-          // redact from returned word
-          characters[i] = "_";
+        return Promise.resolve({
+          ...game,
+          word: characters.join("")
+        });
+      } else {
+        // word guess
+        game.wordGuesses.push(guess);
+
+        if (game.word.toLowerCase() === guess.toLowerCase()) {
+          return Promise.resolve({
+            ...game
+          });
         }
       }
-
-      return Promise.resolve({
-        ...game,
-        word: characters.join("")
-      });
     });
   }
 }
