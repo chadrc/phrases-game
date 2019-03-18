@@ -8,7 +8,7 @@ export default class GameService {
     this._authService = authService;
   }
 
-  startGame() {
+  withAuth(then) {
     if (!this._authService.currentAccessToken) {
       return Promise.resolve({
         error: {
@@ -17,20 +17,56 @@ export default class GameService {
       });
     }
 
-    const newGame = {
-      id: uuid(),
-      word: "Polar Bear",
-      characterGuesses: [],
-      wordGuesses: []
-    };
+    return then();
+  }
 
-    this._games[newGame.id] = newGame;
+  startGame() {
+    return this.withAuth(() => {
+      const newGame = {
+        id: uuid(),
+        word: "Polar Bear",
+        characterGuesses: [],
+        wordGuesses: []
+      };
 
-    const responseGame = {
-      ...newGame,
-      word: newGame.word.replace(/[a-zA-Z]/g, "_")
-    };
+      this._games[newGame.id] = newGame;
 
-    return Promise.resolve(responseGame);
+      const responseGame = {
+        ...newGame,
+        word: newGame.word.replace(/[a-zA-Z]/g, "_")
+      };
+
+      return Promise.resolve(responseGame);
+    });
+  }
+
+  makeGuess({ gameId, guess }) {
+    return this.withAuth(() => {
+      const game = this._games[gameId];
+
+      game.characterGuesses.push(guess.toLowerCase());
+
+      const characters = game.word.split("");
+
+      for (let i = 0; i < characters.length; i++) {
+        const c = characters[i];
+
+        // skip non alpha
+        if (!c.match(/[a-zA-Z]/)) {
+          continue;
+        }
+
+        if (game.characterGuesses.indexOf(c.toLowerCase()) === -1) {
+          // haven't guessed charcter
+          // redact from returned word
+          characters[i] = "_";
+        }
+      }
+
+      return Promise.resolve({
+        ...game,
+        word: characters.join("")
+      });
+    });
   }
 }
