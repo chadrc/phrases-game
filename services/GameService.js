@@ -61,6 +61,14 @@ export default class GameService {
 
       const game = this._games[gameId];
 
+      if (!game) {
+        return Promise.resolve({
+          error: {
+            message: "game does not exist"
+          }
+        });
+      }
+
       let word = game.word;
 
       if (guess.length === 1) {

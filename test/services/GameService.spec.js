@@ -170,4 +170,17 @@ describe("GameService", () => {
 
     expect(guessResponse.error.message).toEqual("guess required");
   });
+
+  test("makeGuess - invalid game id", async () => {
+    const gameService = gameServiceWithAccess();
+
+    await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      gameId: "456",
+      guess: "b"
+    });
+
+    expect(guessResponse.error.message).toEqual("game does not exist");
+  });
 });
