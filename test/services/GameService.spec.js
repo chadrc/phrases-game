@@ -183,4 +183,17 @@ describe("GameService", () => {
 
     expect(guessResponse.error.message).toEqual("game does not exist");
   });
+
+  test("makeGuess - invalid guess", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const { id } = await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      gameId: id,
+      guess: ","
+    });
+
+    expect(guessResponse.error.message).toEqual("must guess a letter A-Z");
+  });
 });

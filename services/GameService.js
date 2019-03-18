@@ -59,6 +59,14 @@ export default class GameService {
         });
       }
 
+      if (!guess.match(/[a-zA-Z]/)) {
+        return Promise.resolve({
+          error: {
+            message: "must guess a letter A-Z"
+          }
+        });
+      }
+
       const game = this._games[gameId];
 
       if (!game) {
