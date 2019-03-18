@@ -44,41 +44,47 @@ export default class GameService {
     return this.withAuth(() => {
       const game = this._games[gameId];
 
+      let word = game.word;
+
       if (guess.length === 1) {
         // character guess
         game.characterGuesses.push(guess.toLowerCase());
 
-        const characters = game.word.split("");
-
-        for (let i = 0; i < characters.length; i++) {
-          const c = characters[i];
-
-          // skip non alpha
-          if (!c.match(/[a-zA-Z]/)) {
-            continue;
-          }
-
-          if (game.characterGuesses.indexOf(c.toLowerCase()) === -1) {
-            // haven't guessed charcter
-            // redact from returned word
-            characters[i] = "_";
-          }
-        }
-
-        return Promise.resolve({
-          ...game,
-          word: characters.join("")
-        });
+        word = this.redactWord(game.word, game.characterGuesses);
       } else {
         // word guess
         game.wordGuesses.push(guess);
 
-        if (game.word.toLowerCase() === guess.toLowerCase()) {
-          return Promise.resolve({
-            ...game
-          });
+        if (game.word.toLowerCase() !== guess.toLowerCase()) {
+          word = this.redactWord(game.word, game.characterGuesses);
         }
       }
+
+      return Promise.resolve({
+        ...game,
+        word
+      });
     });
+  }
+
+  redactWord(word, characterGuesses) {
+    const characters = word.split("");
+
+    for (let i = 0; i < characters.length; i++) {
+      const c = characters[i];
+
+      // skip non alpha
+      if (!c.match(/[a-zA-Z]/)) {
+        continue;
+      }
+
+      if (characterGuesses.indexOf(c.toLowerCase()) === -1) {
+        // haven't guessed charcter
+        // redact from returned word
+        characters[i] = "_";
+      }
+    }
+
+    return characters.join("");
   }
 }

@@ -124,4 +124,20 @@ describe("GameService", () => {
     expect(guessResponse.characterGuesses).toEqual([]);
     expect(guessResponse.wordGuesses).toEqual(["polar bear"]);
   });
+
+  test("makeGuess - incorrect word", async () => {
+    const gameService = gameServiceWithAccess();
+
+    const { id } = await gameService.startGame();
+
+    const guessResponse = await gameService.makeGuess({
+      gameId: id,
+      guess: "panda bear"
+    });
+
+    expect(guessResponse.id).toBeTruthy();
+    expect(guessResponse.word).toEqual("_____ ____");
+    expect(guessResponse.characterGuesses).toEqual([]);
+    expect(guessResponse.wordGuesses).toEqual(["panda bear"]);
+  });
 });
