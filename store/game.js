@@ -2,13 +2,17 @@ import GameService from "@/services/GameService";
 
 export const state = () => ({
   sendingStartGame: false,
+  sendingMakeGuess: false,
   startGameError: null,
+  makeGuessError: null,
   currentGame: null
 });
 
 export const getters = {
   sendingStartGame: (state) => state.sendingStartGame,
+  sendingMakeGuess: (state) => state.sendingMakeGuess,
   startGameError: (state) => state.startGameError,
+  makeGuessError: (state) => state.makeGuessError,
   currentGame: (state) => state.currentGame
 };
 
@@ -16,8 +20,14 @@ export const mutations = {
   setSendingStartGame: (state, val) => {
     state.sendingStartGame = val;
   },
+  setSendingMakeGuess: (state, val) => {
+    state.sendingMakeGuess = val;
+  },
   setStartGameError: (state, error) => {
     state.startGameError = error;
+  },
+  setMakeGuessError: (state, error) => {
+    state.makeGuessError = error;
   },
   setCurrentGame: (state, game) => {
     state.currentGame = game;

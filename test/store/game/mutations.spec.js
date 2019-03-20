@@ -13,6 +13,18 @@ describe("Game Mutations", () => {
     expect(state.startGameError).toEqual({ error: { message: "Some Error" } });
   });
 
+  test("setSendingMakeGuess", () => {
+    const state = stateFunc();
+    mutations.setSendingMakeGuess(state, true);
+    expect(state.sendingMakeGuess).toEqual(true);
+  });
+
+  test("setMakeGuessError", () => {
+    const state = stateFunc();
+    mutations.setMakeGuessError(state, { error: { message: "Some Error" } });
+    expect(state.makeGuessError).toEqual({ error: { message: "Some Error" } });
+  });
+
   test("setCurrentGame", () => {
     const state = stateFunc();
 

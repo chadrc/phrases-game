@@ -14,4 +14,12 @@ describe("Game Getters", () => {
   test("currentGame", () => {
     expect(getters.currentGame(state)).toBeNull();
   });
+
+  test("sendingMakeGuess", () => {
+    expect(getters.sendingMakeGuess(state)).toEqual(false);
+  });
+
+  test("makeGuessError", () => {
+    expect(getters.makeGuessError(state)).toBeNull();
+  });
 });
