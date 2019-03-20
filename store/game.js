@@ -25,7 +25,21 @@ export const mutations = {
 };
 
 export const makeActions = gameService => {
-  return {};
+  return {
+    startGame: async ({ commit }) => {
+      commit("setSendingStartGame", true);
+
+      const startGameResponse = await gameService.startGame();
+
+      if (startGameResponse.error) {
+        commit("setStartGameError", startGameResponse);
+      } else {
+        commit("setCurrentGame", startGameResponse);
+      }
+
+      commit("setSendingStartGame", false);
+    },
+  };
 };
 
 export const actions = makeActions(new GameService());
