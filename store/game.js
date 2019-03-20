@@ -1,8 +1,16 @@
 import GameService from "@/services/GameService";
 
-export const state = () => ({});
+export const state = () => ({
+  sendingStartGame: false,
+  sendingStartGameError: null,
+  currentGame: null
+});
 
-export const getters = {};
+export const getters = {
+  sendingStartGame: (state) => state.sendingStartGame,
+  sendingStartGameError: (state) => state.sendingStartGameError,
+  currentGame: (state) => state.currentGame
+};
 
 export const mutations = {};
 
