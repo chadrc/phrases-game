@@ -9,11 +9,19 @@ const actions = makeActions({
       characterGuesses: [],
       wordGuesses: []
     });
+  },
+  makeGuess: ({ gameId, guess }) => {
+    return Promise.resolve({
+      id: "123",
+      word: "Some Word",
+      characterGuesses: [guess],
+      wordGuesses: []
+    });
   }
 });
 
 describe("Game Actions", () => {
-  test("startGame - Success", (done) => {
+  test("startGame - Success", done => {
     testAction(
       actions.startGame,
       null,
@@ -21,7 +29,8 @@ describe("Game Actions", () => {
       [
         { type: "setSendingStartGame", payload: true },
         {
-          type: "setCurrentGame", payload: {
+          type: "setCurrentGame",
+          payload: {
             id: "123",
             word: "Some Word",
             characterGuesses: [],
@@ -34,7 +43,7 @@ describe("Game Actions", () => {
     );
   });
 
-  test("startGame - Error", (done) => {
+  test("startGame - Error", done => {
     const actions = makeActions({
       startGame: () => {
         return Promise.resolve({
@@ -52,13 +61,67 @@ describe("Game Actions", () => {
       [
         { type: "setSendingStartGame", payload: true },
         {
-          type: "setStartGameError", payload: {
+          type: "setStartGameError",
+          payload: {
             error: {
               message: "Some Error"
             }
           }
         },
         { type: "setSendingStartGame", payload: false }
+      ],
+      done
+    );
+  });
+
+  test("makeGuess - Success", done => {
+    testAction(
+      actions.makeGuess,
+      { guess: "b" },
+      {},
+      [
+        { type: "setSendingMakeGuess", payload: true },
+        {
+          type: "setCurrentGame",
+          payload: {
+            id: "123",
+            word: "Some Word",
+            characterGuesses: ["b"],
+            wordGuesses: []
+          }
+        },
+        { type: "setSendingMakeGuess", payload: false }
+      ],
+      done
+    );
+  });
+
+  test("makeGuess - Error", done => {
+    const actions = makeActions({
+      makeGuess: () => {
+        return Promise.resolve({
+          error: {
+            message: "Some Error"
+          }
+        });
+      }
+    });
+
+    testAction(
+      actions.makeGuess,
+      { guess: "b" },
+      {},
+      [
+        { type: "setSendingMakeGuess", payload: true },
+        {
+          type: "setMakeGuessError",
+          payload: {
+            error: {
+              message: "Some Error"
+            }
+          }
+        },
+        { type: "setSendingMakeGuess", payload: false }
       ],
       done
     );

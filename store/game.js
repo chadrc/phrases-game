@@ -49,6 +49,19 @@ export const makeActions = gameService => {
 
       commit("setSendingStartGame", false);
     },
+    makeGuess: async ({ commit }, {gameId, guess}) => {
+      commit("setSendingMakeGuess", true);
+
+      const makeGuessResponse = await gameService.makeGuess({gameId, guess});
+
+      if (makeGuessResponse.error) {
+        commit("setMakeGuessError", makeGuessResponse);
+      } else {
+        commit("setCurrentGame", makeGuessResponse);
+      }
+
+      commit("setSendingMakeGuess", false);
+    }
   };
 };
 
