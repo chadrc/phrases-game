@@ -132,7 +132,7 @@ export default class GameService {
       charCount++;
 
       if (characterGuesses.indexOf(c.toLowerCase()) === -1) {
-        // haven't guessed charcter
+        // haven't guessed character
         // redact from returned word
         characters[i] = "_";
       } else {
