@@ -7,8 +7,8 @@ describe("Game Getters", () => {
     expect(getters.sendingStartGame(state)).toEqual(false);
   });
 
-  test("sendingStartGameError", () => {
-    expect(getters.sendingStartGameError(state)).toBeNull();
+  test("startGameError", () => {
+    expect(getters.startGameError(state)).toBeNull();
   });
 
   test("currentGame", () => {
