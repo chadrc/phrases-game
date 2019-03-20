@@ -13,7 +13,8 @@ export const getters = {
   sendingMakeGuess: (state) => state.sendingMakeGuess,
   startGameError: (state) => state.startGameError,
   makeGuessError: (state) => state.makeGuessError,
-  currentGame: (state) => state.currentGame
+  currentGame: (state) => state.currentGame,
+  gameWon: (state) => state.currentGame ? state.currentGame.won : false
 };
 
 export const mutations = {

@@ -22,4 +22,17 @@ describe("Game Getters", () => {
   test("makeGuessError", () => {
     expect(getters.makeGuessError(state)).toBeNull();
   });
+
+  test("gameWon - game exists", () => {
+    const state = stateFunc();
+    state.currentGame = {
+      won: true
+    };
+
+    expect(getters.gameWon(state)).toEqual(true);
+  });
+
+  test("gameWon - game doesn't exist", () => {
+    expect(getters.gameWon(state)).toEqual(false);
+  });
 });
