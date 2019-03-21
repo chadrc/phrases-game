@@ -1,11 +1,17 @@
 import uuid from "uuid/v4";
 
+const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+
 export default class GameService {
   _games = {};
   _authService = null;
 
   constructor(authService) {
     this._authService = authService;
+  }
+
+  static get alphabetLetters() {
+    return letters.slice();
   }
 
   withAuth(then) {
