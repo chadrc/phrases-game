@@ -1,3 +1,13 @@
+<template>
+  <section>
+    <span
+      v-for="(c, index) of splitWord"
+      :key="c + index"
+      v-html="htmlForCharacter(c)"
+    ></span>
+  </section>
+</template>
+
 <script>
 import { mapGetters } from "vuex";
 export default {
@@ -8,20 +18,14 @@ export default {
       return this.currentGame ? this.currentGame.word.split("") : [""];
     }
   },
-  render(h) {
-    return h(
-      "section",
-      {},
-      this.splitWord.map((c, index) => {
-        const key = c + index;
+  methods: {
+    htmlForCharacter(c) {
+      if (c === " ") {
+        return "&nbsp;";
+      }
 
-        if (c === " ") {
-          return h("span", { key, domProps: { innerHTML: "&nbsp;" } });
-        }
-
-        return h("span", { key }, [c]);
-      })
-    );
+      return c;
+    }
   }
 };
 </script>
