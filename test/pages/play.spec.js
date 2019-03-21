@@ -15,7 +15,13 @@ describe("Play View", () => {
   test("renders with game", () => {
     const { wrapper, store } = makeVueMock(PlayView, { shallow: true });
 
-    store.commit("game/setCurrentGame", { id: "123" });
+    store.commit("game/setCurrentGame", {
+      id: "123",
+      word: "_o__r B__r",
+      characterGuesses: ["o", "r", "b"],
+      wordGuesses: [],
+      won: false
+    });
 
     expect(wrapper.element).toMatchSnapshot();
   });

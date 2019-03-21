@@ -24,6 +24,193 @@ exports[`Play View renders regular 1`] = `
       New Game
     
     </button>
+     
+    <section
+      style="display: none;"
+    >
+      <button
+        class="button is-info is-small"
+      >
+        
+        a
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        b
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        c
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        d
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        e
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        f
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        g
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        h
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        i
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        j
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        k
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        l
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        m
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        n
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        o
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        p
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        q
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        r
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        s
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        t
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        u
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        v
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        w
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        x
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        y
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        z
+      
+      </button>
+    </section>
   </section>
 </section>
 `;
@@ -53,6 +240,196 @@ exports[`Play View renders with game 1`] = `
       New Game
     
     </button>
+     
+    <section
+      style=""
+    >
+      <button
+        class="button is-info is-small"
+      >
+        
+        a
+      
+      </button>
+      <button
+        class="button is-info is-small"
+        disabled="disabled"
+      >
+        
+        b
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        c
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        d
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        e
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        f
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        g
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        h
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        i
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        j
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        k
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        l
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        m
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        n
+      
+      </button>
+      <button
+        class="button is-info is-small"
+        disabled="disabled"
+      >
+        
+        o
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        p
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        q
+      
+      </button>
+      <button
+        class="button is-info is-small"
+        disabled="disabled"
+      >
+        
+        r
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        s
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        t
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        u
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        v
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        w
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        x
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        y
+      
+      </button>
+      <button
+        class="button is-info is-small"
+      >
+        
+        z
+      
+      </button>
+    </section>
   </section>
 </section>
 `;
