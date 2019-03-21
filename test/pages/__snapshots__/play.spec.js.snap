@@ -15,6 +15,10 @@ exports[`Play View renders regular 1`] = `
   <section
     class="game-area"
   >
+    <section>
+      <span />
+    </section>
+     
     <button
       class="button is-primary is-large is-fullwidth"
     >

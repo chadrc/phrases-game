@@ -1,6 +1,7 @@
 import { mount, createLocalVue, shallowMount } from "@vue/test-utils";
 import Vuex from "vuex";
 import * as authStoreModule from "@/store/auth";
+import * as gameStoreModule from "@/store/game";
 
 export const makeVueMock = (
   C,
@@ -21,6 +22,10 @@ export const makeVueMock = (
       auth: {
         namespaced: true,
         ...authStoreModule
+      },
+      game: {
+        namespaced: true,
+        ...gameStoreModule
       }
     }
   });

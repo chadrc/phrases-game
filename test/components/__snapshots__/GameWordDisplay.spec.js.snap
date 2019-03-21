@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameWordDisplay renders regular 1`] = `
+<section>
+  <span>
+    _
+  </span>
+  <span>
+    o
+  </span>
+  <span>
+    _
+  </span>
+  <span>
+    _
+  </span>
+  <span>
+    r
+  </span>
+  <span>
+     
+  </span>
+  <span>
+    B
+  </span>
+  <span>
+    _
+  </span>
+  <span>
+    _
+  </span>
+  <span>
+    r
+  </span>
+</section>
+`;

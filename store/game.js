@@ -1,4 +1,4 @@
-import GameService from "@/services/GameService";
+import {gameService} from "@/services";
 
 export const state = () => ({
   sendingStartGame: false,
@@ -66,4 +66,4 @@ export const makeActions = gameService => {
   };
 };
 
-export const actions = makeActions(new GameService());
+export const actions = makeActions(gameService);
