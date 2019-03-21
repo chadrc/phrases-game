@@ -12,7 +12,12 @@ describe("GameWordDisplay", () => {
    * Snapshots
    */
 
-  test("renders regular", () => {
+  test("without word", () => {
+    const { wrapper } = makeVueMock(GameWordDisplay);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  test("with word", () => {
     const { wrapper, store } = makeVueMock(GameWordDisplay);
 
     store.commit("game/setCurrentGame", {

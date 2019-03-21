@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GameWordDisplay renders regular 1`] = `
+exports[`GameWordDisplay with word 1`] = `
 <section>
   <span>
     _
@@ -32,5 +32,11 @@ exports[`GameWordDisplay renders regular 1`] = `
   <span>
     r
   </span>
+</section>
+`;
+
+exports[`GameWordDisplay without word 1`] = `
+<section>
+  <span />
 </section>
 `;

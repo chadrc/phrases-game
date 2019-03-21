@@ -15,9 +15,7 @@ exports[`Play View renders regular 1`] = `
   <section
     class="game-area"
   >
-    <section>
-      <span />
-    </section>
+    <game-word-display-stub />
      
     <button
       class="button is-primary is-large is-fullwidth"
