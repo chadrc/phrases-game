@@ -27,3 +27,32 @@ exports[`Play View renders regular 1`] = `
   </section>
 </section>
 `;
+
+exports[`Play View renders with game 1`] = `
+<section
+  class="container"
+>
+  <h1
+    class="title has-text-centered"
+  >
+    
+    Play
+  
+  </h1>
+   
+  <section
+    class="game-area"
+  >
+    <game-word-display-stub />
+     
+    <button
+      class="button is-primary is-large is-fullwidth"
+      style="display: none;"
+    >
+      
+      New Game
+    
+    </button>
+  </section>
+</section>
+`;

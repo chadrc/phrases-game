@@ -11,4 +11,12 @@ describe("Play View", () => {
   test("renders regular", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  test("renders with game", () => {
+    const { wrapper, store } = makeVueMock(PlayView, { shallow: true });
+
+    store.commit("game/setCurrentGame", { id: "123" });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

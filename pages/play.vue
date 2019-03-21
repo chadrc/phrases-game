@@ -5,7 +5,7 @@
     </h1>
     <section class="game-area">
       <game-word-display></game-word-display>
-      <button class="button is-primary is-large is-fullwidth" @click="startGame()">
+      <button v-show="!currentGame" class="button is-primary is-large is-fullwidth" @click="startGame()">
         New Game
       </button>
     </section>
@@ -13,11 +13,14 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import GameWordDisplay from "@/components/GameWordDisplay";
 
 export default {
   components: { GameWordDisplay },
+  computed: {
+    ...mapGetters("game", ["currentGame"])
+  },
   methods: {
     ...mapActions("game", ["startGame"])
   }
