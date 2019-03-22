@@ -1,4 +1,5 @@
 import uuid from "uuid/v4";
+import {cloneDeep} from "lodash";
 
 const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -43,7 +44,7 @@ export default class GameService {
         word: newGame.word.replace(/[a-zA-Z]/g, "_")
       };
 
-      return Promise.resolve(responseGame);
+      return Promise.resolve(cloneDeep(responseGame));
     });
   }
 
@@ -111,7 +112,7 @@ export default class GameService {
       }
 
       return Promise.resolve({
-        ...game,
+        ...cloneDeep(game),
         word
       });
     });

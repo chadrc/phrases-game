@@ -78,7 +78,11 @@ describe("Game Actions", () => {
     testAction(
       actions.makeGuess,
       { guess: "b" },
-      {},
+      {
+        currentGame: {
+          id: "123"
+        }
+      },
       [
         { type: "setSendingMakeGuess", payload: true },
         {
@@ -110,7 +114,11 @@ describe("Game Actions", () => {
     testAction(
       actions.makeGuess,
       { guess: "b" },
-      {},
+      {
+        currentGame: {
+          id: "123"
+        }
+      },
       [
         { type: "setSendingMakeGuess", payload: true },
         {

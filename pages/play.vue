@@ -15,9 +15,9 @@
       <section v-show="currentGame">
         <div class="letter-buttons">
           <button
-            class="button is-info is-large is-letter-button"
             v-for="letter of letters"
             :key="letter"
+            class="button is-info is-large is-letter-button"
             :disabled="letterChosen(letter)"
             @click="makeGuess({ guess: letter })"
           >

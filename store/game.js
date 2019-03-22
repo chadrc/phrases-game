@@ -1,4 +1,4 @@
-import {gameService} from "@/services";
+import { gameService } from "@/services";
 
 export const state = () => ({
   sendingStartGame: false,
@@ -9,12 +9,12 @@ export const state = () => ({
 });
 
 export const getters = {
-  sendingStartGame: (state) => state.sendingStartGame,
-  sendingMakeGuess: (state) => state.sendingMakeGuess,
-  startGameError: (state) => state.startGameError,
-  makeGuessError: (state) => state.makeGuessError,
-  currentGame: (state) => state.currentGame,
-  gameWon: (state) => state.currentGame ? state.currentGame.won : false
+  sendingStartGame: state => state.sendingStartGame,
+  sendingMakeGuess: state => state.sendingMakeGuess,
+  startGameError: state => state.startGameError,
+  makeGuessError: state => state.makeGuessError,
+  currentGame: state => state.currentGame,
+  gameWon: state => (state.currentGame ? state.currentGame.won : false)
 };
 
 export const mutations = {
@@ -50,10 +50,13 @@ export const makeActions = gameService => {
 
       commit("setSendingStartGame", false);
     },
-    makeGuess: async ({ commit }, {gameId, guess}) => {
+    makeGuess: async ({ commit, state }, { guess }) => {
       commit("setSendingMakeGuess", true);
 
-      const makeGuessResponse = await gameService.makeGuess({gameId, guess});
+      const makeGuessResponse = await gameService.makeGuess({
+        gameId: state.currentGame.id,
+        guess
+      });
 
       if (makeGuessResponse.error) {
         commit("setMakeGuessError", makeGuessResponse);

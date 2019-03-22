@@ -16,7 +16,7 @@ export default {
   computed: {
     ...mapGetters("game", ["currentGame"]),
     splitWord() {
-      return this.currentGame ? this.currentGame.word.split("") : [""];
+      return this.currentGame ? this.currentGame.word.split("") : [];
     }
   },
   methods: {
