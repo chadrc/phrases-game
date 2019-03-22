@@ -82,6 +82,10 @@ export default class AuthService {
       });
     }
 
+    if (localStorage) {
+      localStorage.removeItem("currentUser");
+    }
+
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({});
