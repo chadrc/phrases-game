@@ -8,7 +8,7 @@ exports[`Play View renders regular 1`] = `
     class="title has-text-centered"
   >
     
-    Play
+    Guess the word
   
   </h1>
    
@@ -16,14 +16,6 @@ exports[`Play View renders regular 1`] = `
     class="game-area"
   >
     <game-word-display-stub />
-     
-    <button
-      class="button is-primary is-large is-fullwidth"
-    >
-      
-      New Game
-    
-    </button>
      
     <section
       style="display: none;"
@@ -215,6 +207,14 @@ exports[`Play View renders regular 1`] = `
         </button>
       </div>
     </section>
+     
+    <button
+      class="button is-primary is-large is-fullwidth"
+    >
+      
+      Start
+    
+    </button>
   </section>
 </section>
 `;
@@ -227,7 +227,7 @@ exports[`Play View renders with game 1`] = `
     class="title has-text-centered"
   >
     
-    Play
+    Guess the word
   
   </h1>
    
@@ -235,15 +235,6 @@ exports[`Play View renders with game 1`] = `
     class="game-area"
   >
     <game-word-display-stub />
-     
-    <button
-      class="button is-primary is-large is-fullwidth"
-      style="display: none;"
-    >
-      
-      New Game
-    
-    </button>
      
     <section
       style=""
@@ -438,6 +429,259 @@ exports[`Play View renders with game 1`] = `
         </button>
       </div>
     </section>
+     
+    <button
+      class="button is-primary is-large is-fullwidth"
+    >
+      
+      Start
+    
+    </button>
+  </section>
+</section>
+`;
+
+exports[`Play View renders with game won 1`] = `
+<section
+  class="container"
+>
+  <h1
+    class="title has-text-centered"
+  >
+    
+    You Won!!
+  
+  </h1>
+   
+  <section
+    class="game-area"
+  >
+    <game-word-display-stub />
+     
+    <section
+      style=""
+    >
+      <div
+        class="letter-buttons"
+      >
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          a
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          b
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          c
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          d
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          e
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          f
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          g
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          h
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          i
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          j
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          k
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          l
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          m
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          n
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          o
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          p
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          q
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          r
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          s
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          t
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          u
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          v
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          w
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          x
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          y
+        
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          z
+        
+        </button>
+      </div>
+    </section>
+     
+    <button
+      class="button is-primary is-large is-fullwidth"
+    >
+      
+      Start
+    
+    </button>
   </section>
 </section>
 `;

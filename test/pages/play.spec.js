@@ -25,4 +25,18 @@ describe("Play View", () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  test("renders with game won", () => {
+    const { wrapper, store } = makeVueMock(PlayView, { shallow: true });
+
+    store.commit("game/setCurrentGame", {
+      id: "123",
+      word: "Polar Bear",
+      characterGuesses: ["p", "o", "l", "a", "r", "b", "e"],
+      wordGuesses: [],
+      won: true
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
