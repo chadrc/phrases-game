@@ -28,188 +28,190 @@ exports[`Play View renders regular 1`] = `
     <section
       style="display: none;"
     >
-      <button
-        class="button is-info is-small"
-      >
+      <div>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          a
         
-        a
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          b
         
-        b
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          c
         
-        c
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          d
         
-        d
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          e
         
-        e
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          f
         
-        f
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          g
         
-        g
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          h
         
-        h
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          i
         
-        i
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          j
         
-        j
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          k
         
-        k
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          l
         
-        l
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          m
         
-        m
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          n
         
-        n
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          o
         
-        o
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          p
         
-        p
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          q
         
-        q
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          r
         
-        r
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          s
         
-        s
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          t
         
-        t
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          u
         
-        u
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          v
         
-        v
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          w
         
-        w
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          x
         
-        x
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          y
         
-        y
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          z
         
-        z
-      
-      </button>
+        </button>
+      </div>
     </section>
   </section>
 </section>
@@ -244,191 +246,193 @@ exports[`Play View renders with game 1`] = `
     <section
       style=""
     >
-      <button
-        class="button is-info is-small"
-      >
+      <div>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          a
         
-        a
-      
-      </button>
-      <button
-        class="button is-info is-small"
-        disabled="disabled"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          b
         
-        b
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          c
         
-        c
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          d
         
-        d
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          e
         
-        e
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          f
         
-        f
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          g
         
-        g
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          h
         
-        h
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          i
         
-        i
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          j
         
-        j
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          k
         
-        k
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          l
         
-        l
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          m
         
-        m
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          n
         
-        n
-      
-      </button>
-      <button
-        class="button is-info is-small"
-        disabled="disabled"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          o
         
-        o
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          p
         
-        p
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          q
         
-        q
-      
-      </button>
-      <button
-        class="button is-info is-small"
-        disabled="disabled"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+          disabled="disabled"
+        >
+          
+          r
         
-        r
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          s
         
-        s
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          t
         
-        t
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          u
         
-        u
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          v
         
-        v
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          w
         
-        w
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          x
         
-        x
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          y
         
-        y
-      
-      </button>
-      <button
-        class="button is-info is-small"
-      >
+        </button>
+        <button
+          class="button is-info is-large is-letter-button"
+        >
+          
+          z
         
-        z
-      
-      </button>
+        </button>
+      </div>
     </section>
   </section>
 </section>

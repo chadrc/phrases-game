@@ -12,15 +12,18 @@
       >
         New Game
       </button>
-      <section v-show="currentGame">
-        <button class="button is-info is-small"
-                v-for="letter of letters"
-                :key="letter"
-                :disabled="letterChosen(letter)"
-                @click="makeGuess({guess: letter})"
-        >
-          {{ letter }}
-        </button>
+      <section class="" v-show="currentGame">
+        <div class="">
+          <button
+            class="button is-info is-large is-letter-button"
+            v-for="letter of letters"
+            :key="letter"
+            :disabled="letterChosen(letter)"
+            @click="makeGuess({ guess: letter })"
+          >
+            {{ letter }}
+          </button>
+        </div>
       </section>
     </section>
   </section>
@@ -51,7 +54,13 @@ export default {
 
 <style scoped>
 .game-area {
-  width: 50%;
+  width: 75%;
   margin: auto;
+}
+
+.is-letter-button {
+  margin: .25em;
+  width: 3em;
+  height: 3em;
 }
 </style>
