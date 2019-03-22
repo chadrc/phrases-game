@@ -22,7 +22,7 @@
         class="button is-primary is-large is-fullwidth"
         @click="startGame()"
       >
-        Start
+        {{ startGameText }}
       </button>
     </section>
   </section>
@@ -45,6 +45,13 @@ export default {
     },
     titleText() {
       return this.gameEnded ? "You Won!!" : "Guess the word";
+    },
+    startGameText() {
+      if (this.currentGame) {
+        return "New";
+      }
+
+      return "Start";
     }
   },
   methods: {
