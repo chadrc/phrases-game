@@ -28,7 +28,9 @@ exports[`Play View renders regular 1`] = `
     <section
       style="display: none;"
     >
-      <div>
+      <div
+        class="letter-buttons"
+      >
         <button
           class="button is-info is-large is-letter-button"
         >
@@ -246,7 +248,9 @@ exports[`Play View renders with game 1`] = `
     <section
       style=""
     >
-      <div>
+      <div
+        class="letter-buttons"
+      >
         <button
           class="button is-info is-large is-letter-button"
         >

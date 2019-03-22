@@ -12,8 +12,8 @@
       >
         New Game
       </button>
-      <section class="" v-show="currentGame">
-        <div class="">
+      <section v-show="currentGame">
+        <div class="letter-buttons">
           <button
             class="button is-info is-large is-letter-button"
             v-for="letter of letters"
@@ -56,6 +56,10 @@ export default {
 .game-area {
   width: 75%;
   margin: auto;
+}
+
+.letter-buttons {
+  text-align: center;
 }
 
 .is-letter-button {
