@@ -1,9 +1,26 @@
 import uuid from "uuid/v4";
 
+const localStorage = process.browser ? window.localStorage : null;
+
 export default class AuthService {
   _accounts = {};
   _currentAccountUsername = null;
   _currentAccessToken = null;
+
+  constructor() {
+    if (localStorage) {
+      const accounts = localStorage.getItem("accounts");
+      if (accounts) {
+        this._accounts = JSON.parse(accounts);
+      }
+
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser) {
+        this._currentAccountUsername = currentUser;
+        this._currentAccessToken = uuid();
+      }
+    }
+  }
 
   get currentAccessToken() {
     return this._currentAccessToken;
@@ -43,6 +60,11 @@ export default class AuthService {
 
     this._currentAccountUsername = username;
     this._accounts[username] = account;
+
+    if (localStorage) {
+      localStorage.setItem("accounts", JSON.stringify(this._accounts));
+      localStorage.setItem("currentUser", username);
+    }
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
