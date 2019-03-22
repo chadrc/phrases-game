@@ -1,8 +1,9 @@
 <template>
-  <section>
+  <section class="word-display">
     <span
       v-for="(c, index) of splitWord"
       :key="c + index"
+      :class="{ character: isCharacter(c) }"
       v-html="htmlForCharacter(c)"
     ></span>
   </section>
@@ -19,8 +20,11 @@ export default {
     }
   },
   methods: {
+    isCharacter(c) {
+      return c !== " ";
+    },
     htmlForCharacter(c) {
-      if (c === " ") {
+      if (c === " " || c === "_") {
         return "&nbsp;";
       }
 
@@ -30,4 +34,20 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.word-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.word-display > span {
+  font-size: 3rem;
+  width: 1em;
+  margin: 0 0.1em;
+}
+
+.character {
+  border-bottom: 2px solid black;
+}
+</style>
