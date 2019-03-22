@@ -206,6 +206,32 @@ exports[`Play View renders regular 1`] = `
         
         </button>
       </div>
+       
+      <div
+        class="field has-addons"
+      >
+        <div
+          class="control is-expanded"
+        >
+          <input
+            class="input is-large has-text-centered"
+            placeholder="Guess"
+            type="text"
+          />
+        </div>
+         
+        <div
+          class="control"
+        >
+          <button
+            class="button is-info is-large"
+          >
+            
+            Guess
+          
+          </button>
+        </div>
+      </div>
     </section>
      
     <button
@@ -427,6 +453,32 @@ exports[`Play View renders with game 1`] = `
           z
         
         </button>
+      </div>
+       
+      <div
+        class="field has-addons"
+      >
+        <div
+          class="control is-expanded"
+        >
+          <input
+            class="input is-large has-text-centered"
+            placeholder="Guess"
+            type="text"
+          />
+        </div>
+         
+        <div
+          class="control"
+        >
+          <button
+            class="button is-info is-large"
+          >
+            
+            Guess
+          
+          </button>
+        </div>
       </div>
     </section>
      
@@ -672,6 +724,32 @@ exports[`Play View renders with game won 1`] = `
           z
         
         </button>
+      </div>
+       
+      <div
+        class="field has-addons"
+      >
+        <div
+          class="control is-expanded"
+        >
+          <input
+            class="input is-large has-text-centered"
+            placeholder="Guess"
+            type="text"
+          />
+        </div>
+         
+        <div
+          class="control"
+        >
+          <button
+            class="button is-info is-large"
+          >
+            
+            Guess
+          
+          </button>
+        </div>
       </div>
     </section>
      

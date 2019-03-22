@@ -17,6 +17,22 @@
             {{ letter }}
           </button>
         </div>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input
+              v-model="guessText"
+              class="input is-large has-text-centered"
+              type="text"
+              placeholder="Guess"
+              @keyup.enter="submitWordGuess"
+            />
+          </div>
+          <div class="control">
+            <button class="button is-info is-large" @click="submitWordGuess">
+              Guess
+            </button>
+          </div>
+        </div>
       </section>
       <button
         class="button is-primary is-large is-fullwidth"
@@ -35,6 +51,9 @@ import GameWordDisplay from "@/components/GameWordDisplay";
 
 export default {
   components: { GameWordDisplay },
+  data: () => ({
+    guessText: ""
+  }),
   computed: {
     ...mapGetters("game", ["currentGame"]),
     letters() {
@@ -63,6 +82,10 @@ export default {
 
       const chosen = this.currentGame ? this.currentGame.characterGuesses : [];
       return chosen.indexOf(letter) !== -1;
+    },
+    submitWordGuess() {
+      this.makeGuess({ guess: this.guessText });
+      this.guessText = "";
     }
   }
 };
@@ -74,7 +97,8 @@ export default {
   margin: auto;
 }
 
-.game-area > button {
+.game-area > button,
+.game-area > section > div.field {
   margin-top: 3rem;
 }
 
@@ -83,7 +107,7 @@ export default {
 }
 
 .is-letter-button {
-  margin: .25em;
+  margin: 0.25em;
   width: 3em;
   height: 3em;
 }
