@@ -49,5 +49,6 @@ export default {
 
 .character {
   border-bottom: 2px solid black;
+  text-align: center;
 }
 </style>

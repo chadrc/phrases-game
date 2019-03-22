@@ -60,9 +60,5 @@ exports[`GameWordDisplay with word 1`] = `
 exports[`GameWordDisplay without word 1`] = `
 <section
   class="word-display"
->
-  <span
-    class="character"
-  />
-</section>
+/>
 `;
