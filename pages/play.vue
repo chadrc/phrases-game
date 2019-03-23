@@ -73,9 +73,6 @@ export default {
       return "Start";
     }
   },
-  fetch({ store }) {
-    store.dispatch("checkAccess");
-  },
   methods: {
     ...mapActions("game", ["startGame", "makeGuess"]),
     characterDisabled(letter) {

@@ -96,6 +96,9 @@ export default {
       return "";
     }
   },
+  created() {
+    this.checkAccess();
+  },
   methods: {
     ...mapActions("auth", [
       "startSignUp",
@@ -104,7 +107,8 @@ export default {
       "endSignIn",
       "submitSignUp",
       "submitSignIn",
-      "submitSignOut"
+      "submitSignOut",
+      "checkAccess"
     ]),
     cancelAuth() {
       if (this.signingUp) {

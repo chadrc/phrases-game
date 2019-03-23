@@ -9,7 +9,7 @@
 import MenuBar from "@/components/MenuBar";
 
 export default {
-  components: {MenuBar}
+  components: {MenuBar},
 };
 </script>
 
