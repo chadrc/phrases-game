@@ -154,7 +154,9 @@ export const makeActions = authService => {
     checkAccess: async ({ commit }) => {
       const verifyResponse = await authService.verifyAccess();
 
-      commit("setCurrentUser", verifyResponse);
+      if (!verifyResponse.error) {
+        commit("setCurrentUser", verifyResponse);
+      }
     }
   };
 };

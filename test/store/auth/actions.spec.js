@@ -258,4 +258,18 @@ describe("Auth Actions", () => {
       done
     );
   });
+
+  test("checkAccess - Access Error", done => {
+    const actions = makeActions({
+      verifyAccess: () => {
+        return Promise.resolve({
+          error: {
+            message: "No Access"
+          }
+        });
+      }
+    });
+
+    testAction(actions.checkAccess, {}, {}, [], done);
+  });
 });
