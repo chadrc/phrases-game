@@ -150,6 +150,9 @@ export const makeActions = authService => {
       }
 
       commit("setSendingSignOut", false);
+    },
+    checkAccess: () => {
+
     }
   };
 };

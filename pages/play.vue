@@ -51,6 +51,9 @@ import GameWordDisplay from "@/components/GameWordDisplay";
 
 export default {
   components: { GameWordDisplay },
+  fetch({store}) {
+    store.dispatch("checkAccess");
+  },
   data: () => ({
     guessText: ""
   }),

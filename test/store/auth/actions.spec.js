@@ -90,7 +90,6 @@ describe("Auth Actions", () => {
       done
     );
   });
-
   test("submitSignUp - Error", done => {
     const actions = makeActions({
       signUp: ({ username, password }) => {
@@ -225,5 +224,9 @@ describe("Auth Actions", () => {
       ],
       done
     );
+  });
+
+  test("checkAccess - No Access", done => {
+    testAction(actions.checkAccess, {}, {}, [], done);
   });
 });
