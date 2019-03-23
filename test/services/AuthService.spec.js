@@ -23,6 +23,47 @@ describe("AuthService", () => {
     expect(verifyAccessResponse.username).toEqual("panda");
   });
 
+  test("access - No token", async () => {
+    localStorage.clear();
+    localStorage.setItem(
+      "accounts",
+      JSON.stringify([
+        {
+          accessToken: "123",
+          id: "456",
+          username: "panda"
+        }
+      ])
+    );
+
+    const authService = new AuthService(localStorage);
+
+    const verifyAccessResponse = await authService.verifyAccess();
+
+    expect(verifyAccessResponse.error.message).toEqual("No Access");
+  });
+
+  test("access - Invalid token", async () => {
+    localStorage.clear();
+    localStorage.setItem("accessToken", "789");
+    localStorage.setItem(
+      "accounts",
+      JSON.stringify([
+        {
+          accessToken: "123",
+          id: "456",
+          username: "panda"
+        }
+      ])
+    );
+
+    const authService = new AuthService(localStorage);
+
+    const verifyAccessResponse = await authService.verifyAccess();
+
+    expect(verifyAccessResponse.error.message).toEqual("No Access");
+  });
+
   test("signUp - Success", async () => {
     localStorage.clear();
     const authService = new AuthService(localStorage);
