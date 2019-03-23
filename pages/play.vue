@@ -73,7 +73,7 @@ export default {
       return "Start";
     }
   },
-  fetch({store}) {
+  fetch({ store }) {
     store.dispatch("checkAccess");
   },
   methods: {
