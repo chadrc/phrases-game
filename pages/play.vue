@@ -51,9 +51,6 @@ import GameWordDisplay from "@/components/GameWordDisplay";
 
 export default {
   components: { GameWordDisplay },
-  fetch({store}) {
-    store.dispatch("checkAccess");
-  },
   data: () => ({
     guessText: ""
   }),
@@ -75,6 +72,9 @@ export default {
 
       return "Start";
     }
+  },
+  fetch({store}) {
+    store.dispatch("checkAccess");
   },
   methods: {
     ...mapActions("game", ["startGame", "makeGuess"]),

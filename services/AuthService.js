@@ -14,12 +14,6 @@ export default class AuthService {
       if (accounts) {
         this._accounts = JSON.parse(accounts);
       }
-
-      const currentUser = storage.getItem("currentUser");
-      if (currentUser) {
-        this._currentAccountUsername = currentUser;
-        this._currentAccessToken = uuid();
-      }
     }
   }
 
@@ -94,7 +88,6 @@ export default class AuthService {
     if (this._storage) {
       this._storage.setItem("accessToken", accessToken);
       this._storage.setItem("accounts", JSON.stringify(this._accounts));
-      this._storage.setItem("currentUser", username);
     }
 
     return new Promise((resolve, reject) => {
