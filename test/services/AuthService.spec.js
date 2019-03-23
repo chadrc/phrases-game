@@ -17,9 +17,7 @@ describe("AuthService", () => {
 
     const authService = new AuthService(localStorage);
 
-    const verifyAccessResponse = await authService.verifyAccess({
-      accessToken: "123"
-    });
+    const verifyAccessResponse = await authService.verifyAccess();
 
     expect(verifyAccessResponse.id).toEqual("456");
     expect(verifyAccessResponse.username).toEqual("panda");
@@ -128,11 +126,10 @@ describe("AuthService", () => {
       accessToken: signUpResponse.accessToken
     });
 
-    const signInResponse = await authService
-      .signIn({
-        username: "PandaBear",
-        password: "bamboo123"
-      });
+    const signInResponse = await authService.signIn({
+      username: "PandaBear",
+      password: "bamboo123"
+    });
 
     expect(signInResponse.id).toEqual(id);
     expect(signInResponse.accessToken).toBeTruthy();

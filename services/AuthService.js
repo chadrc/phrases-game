@@ -27,10 +27,20 @@ export default class AuthService {
     return this._currentAccessToken;
   }
 
-  verifyAccess({ accessToken }) {
+  verifyAccess() {
+    if (!this._storage) {
+      return Promise.resolve({
+        error: {
+          message: "No Access"
+        }
+      });
+    }
+
+    const accessToken = this._storage.getItem("accessToken");
+
     const account = _.chain(this._accounts)
       .values()
-      .find((account) => account.accessToken === accessToken)
+      .find(account => account.accessToken === accessToken)
       .value();
 
     if (!account) {

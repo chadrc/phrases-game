@@ -1,4 +1,4 @@
-import {authService} from "@/services";
+import { authService } from "@/services";
 
 export const state = () => ({
   signingUp: false,
@@ -151,8 +151,10 @@ export const makeActions = authService => {
 
       commit("setSendingSignOut", false);
     },
-    checkAccess: () => {
+    checkAccess: async ({ commit }) => {
+      const verifyResponse = await authService.verifyAccess();
 
+      commit("setCurrentUser", verifyResponse);
     }
   };
 };

@@ -229,4 +229,33 @@ describe("Auth Actions", () => {
   test("checkAccess - No Access", done => {
     testAction(actions.checkAccess, {}, {}, [], done);
   });
+
+  test("checkAccess - Has Access", done => {
+    const actions = makeActions({
+      verifyAccess: () => {
+        return Promise.resolve({
+          id: "123",
+          accessToken: "987",
+          username: "panda"
+        });
+      }
+    });
+
+    testAction(
+      actions.checkAccess,
+      {},
+      {},
+      [
+        {
+          type: "setCurrentUser",
+          payload: {
+            id: "123",
+            accessToken: "987",
+            username: "panda"
+          }
+        }
+      ],
+      done
+    );
+  });
 });
