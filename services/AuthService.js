@@ -14,6 +14,11 @@ export default class AuthService {
       if (accounts) {
         this._accounts = JSON.parse(accounts);
       }
+
+      const accessToken = storage.getItem("accessToken");
+      if (accessToken) {
+        this._currentAccessToken = accessToken;
+      }
     }
   }
 
