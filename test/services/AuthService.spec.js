@@ -1,6 +1,23 @@
 import AuthService from "@/services/AuthService";
 
 describe("AuthService", () => {
+  test("access - Has access if account in localStorage", async () => {
+    localStorage.clear();
+    localStorage.setItem("accessToken", "123");
+    localStorage.setItem("accounts", JSON.stringify([{
+      accessToken: "123",
+      id: "456",
+      username: "panda"
+    }]));
+
+    const authService = new AuthService(localStorage);
+
+    const verifyAccessResponse = await authService.verifyAccess({accessToken: "123"});
+
+    expect(verifyAccessResponse.id).toEqual("456");
+    expect(verifyAccessResponse.username).toEqual("panda");
+  });
+
   test("signUp - Success", done => {
     localStorage.clear();
     const authService = new AuthService();

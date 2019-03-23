@@ -1,20 +1,21 @@
 import uuid from "uuid/v4";
-
-const localStorage = process.browser ? window.localStorage : null;
+import _ from "lodash";
 
 export default class AuthService {
   _accounts = {};
   _currentAccountUsername = null;
   _currentAccessToken = null;
+  _storage = null;
 
-  constructor() {
-    if (localStorage) {
-      const accounts = localStorage.getItem("accounts");
+  constructor(storage) {
+    if (storage) {
+      this._storage = storage;
+      const accounts = storage.getItem("accounts");
       if (accounts) {
         this._accounts = JSON.parse(accounts);
       }
 
-      const currentUser = localStorage.getItem("currentUser");
+      const currentUser = storage.getItem("currentUser");
       if (currentUser) {
         this._currentAccountUsername = currentUser;
         this._currentAccessToken = uuid();
@@ -24,6 +25,26 @@ export default class AuthService {
 
   get currentAccessToken() {
     return this._currentAccessToken;
+  }
+
+  verifyAccess({ accessToken }) {
+    console.log(JSON.stringify(this._accounts));
+    const account = _.chain(this._accounts)
+      .values()
+      .find((account) => account.accessToken === accessToken)
+      .value();
+
+    console.log(JSON.stringify(account));
+
+    if (!account) {
+      return Promise.resolve({
+        error: {
+          message: "No Access"
+        }
+      });
+    }
+
+    return Promise.resolve(_.cloneDeep(account));
   }
 
   signUp({ username, password }) {
@@ -61,9 +82,9 @@ export default class AuthService {
     this._currentAccountUsername = username;
     this._accounts[username] = account;
 
-    if (localStorage) {
-      localStorage.setItem("accounts", JSON.stringify(this._accounts));
-      localStorage.setItem("currentUser", username);
+    if (this._storage) {
+      this._storage.setItem("accounts", JSON.stringify(this._accounts));
+      this._storage.setItem("currentUser", username);
     }
 
     return new Promise((resolve, reject) => {
@@ -82,8 +103,8 @@ export default class AuthService {
       });
     }
 
-    if (localStorage) {
-      localStorage.removeItem("currentUser");
+    if (this._storage) {
+      this._storage.removeItem("currentUser");
     }
 
     return new Promise(resolve => {
