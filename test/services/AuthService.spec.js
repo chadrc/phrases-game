@@ -19,7 +19,6 @@ describe("AuthService", () => {
   });
 
   test("signUp - Success", done => {
-    localStorage.clear();
     const authService = new AuthService();
     authService
       .signUp({ username: "PandaBear", password: "bamboo123" })
@@ -31,7 +30,6 @@ describe("AuthService", () => {
   });
 
   test("access token after sign up", async () => {
-    localStorage.clear();
     const authService = new AuthService();
 
     expect(authService.currentAccessToken).toBeNull();
@@ -42,7 +40,6 @@ describe("AuthService", () => {
   });
 
   test("signUp - Invalid password", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService
@@ -54,7 +51,6 @@ describe("AuthService", () => {
   });
 
   test("signUp - No username", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService.signUp({ password: "password" }).then(response => {
@@ -64,7 +60,6 @@ describe("AuthService", () => {
   });
 
   test("signUp - No password", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService.signUp({ username: "PandaBear" }).then(response => {
@@ -74,7 +69,6 @@ describe("AuthService", () => {
   });
 
   test("signOut", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService
@@ -87,7 +81,6 @@ describe("AuthService", () => {
   });
 
   test("signOut - before signUp/signIn", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService.signOut({}).then(response => {
@@ -97,7 +90,6 @@ describe("AuthService", () => {
   });
 
   test("signIn - Before sign up", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService
@@ -109,7 +101,6 @@ describe("AuthService", () => {
   });
 
   test("signIn - Success", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService
@@ -135,7 +126,6 @@ describe("AuthService", () => {
   });
 
   test("signIn - No username", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService
@@ -149,7 +139,6 @@ describe("AuthService", () => {
   });
 
   test("signIn - No password", done => {
-    localStorage.clear();
     const authService = new AuthService();
 
     authService

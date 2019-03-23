@@ -28,13 +28,10 @@ export default class AuthService {
   }
 
   verifyAccess({ accessToken }) {
-    console.log(JSON.stringify(this._accounts));
     const account = _.chain(this._accounts)
       .values()
       .find((account) => account.accessToken === accessToken)
       .value();
-
-    console.log(JSON.stringify(account));
 
     if (!account) {
       return Promise.resolve({
