@@ -89,7 +89,7 @@ export default class AuthService {
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(account);
+        resolve(_.cloneDeep(account));
       }, 1000);
     });
   }
@@ -139,9 +139,17 @@ export default class AuthService {
       });
     }
 
+    const account = this._accounts[username];
+
+    account.accessToken = uuid();
+
+    if (this._storage) {
+      this._storage.setItem("accessToken", account.accessToken);
+    }
+
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(this._accounts[username]);
+        resolve(_.cloneDeep(this._accounts[username]));
       }, 500);
     });
   }

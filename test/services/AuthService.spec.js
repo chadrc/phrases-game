@@ -113,29 +113,31 @@ describe("AuthService", () => {
       });
   });
 
-  test("signIn - Success", done => {
-    const authService = new AuthService();
+  test("signIn - Success", async () => {
+    localStorage.clear();
+    const authService = new AuthService(localStorage);
 
-    authService
-      .signUp({ username: "PandaBear", password: "bamboo123" })
-      .then(signUpResponse => {
-        const id = signUpResponse.id;
+    const signUpResponse = await authService.signUp({
+      username: "PandaBear",
+      password: "bamboo123"
+    });
 
-        authService
-          .signOut({ accessToken: signUpResponse.accessToken })
-          .then(() => {
-            authService
-              .signIn({
-                username: "PandaBear",
-                password: "bamboo123"
-              })
-              .then(response => {
-                expect(response.id).toEqual(id);
-                expect(response.username).toEqual("PandaBear");
-                done();
-              });
-          });
+    const id = signUpResponse.id;
+
+    await authService.signOut({
+      accessToken: signUpResponse.accessToken
+    });
+
+    const signInResponse = await authService
+      .signIn({
+        username: "PandaBear",
+        password: "bamboo123"
       });
+
+    expect(signInResponse.id).toEqual(id);
+    expect(signInResponse.accessToken).toBeTruthy();
+    expect(localStorage.getItem("accessToken")).toBeTruthy();
+    expect(signInResponse.username).toEqual("PandaBear");
   });
 
   test("signIn - No username", done => {
