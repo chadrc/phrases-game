@@ -4,29 +4,40 @@ describe("AuthService", () => {
   test("access - Has access if account in localStorage", async () => {
     localStorage.clear();
     localStorage.setItem("accessToken", "123");
-    localStorage.setItem("accounts", JSON.stringify([{
-      accessToken: "123",
-      id: "456",
-      username: "panda"
-    }]));
+    localStorage.setItem(
+      "accounts",
+      JSON.stringify([
+        {
+          accessToken: "123",
+          id: "456",
+          username: "panda"
+        }
+      ])
+    );
 
     const authService = new AuthService(localStorage);
 
-    const verifyAccessResponse = await authService.verifyAccess({accessToken: "123"});
+    const verifyAccessResponse = await authService.verifyAccess({
+      accessToken: "123"
+    });
 
     expect(verifyAccessResponse.id).toEqual("456");
     expect(verifyAccessResponse.username).toEqual("panda");
   });
 
-  test("signUp - Success", done => {
-    const authService = new AuthService();
-    authService
-      .signUp({ username: "PandaBear", password: "bamboo123" })
-      .then(response => {
-        expect(response.id).toBeTruthy();
-        expect(response.username).toEqual("PandaBear");
-        done();
-      });
+  test("signUp - Success", async () => {
+    localStorage.clear();
+    const authService = new AuthService(localStorage);
+
+    const response = await authService.signUp({
+      username: "PandaBear",
+      password: "bamboo123"
+    });
+
+    expect(response.id).toBeTruthy();
+    expect(response.accessToken).toBeTruthy();
+    expect(localStorage.getItem("accessToken")).toBeTruthy();
+    expect(response.username).toEqual("PandaBear");
   });
 
   test("access token after sign up", async () => {

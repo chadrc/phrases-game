@@ -69,10 +69,12 @@ export default class AuthService {
       });
     }
 
-    this._currentAccessToken = uuid();
+    const accessToken = uuid();
+    this._currentAccessToken = accessToken;
 
     const account = {
       id: uuid(),
+      accessToken,
       username
     };
 
@@ -80,6 +82,7 @@ export default class AuthService {
     this._accounts[username] = account;
 
     if (this._storage) {
+      this._storage.setItem("accessToken", accessToken);
       this._storage.setItem("accounts", JSON.stringify(this._accounts));
       this._storage.setItem("currentUser", username);
     }
