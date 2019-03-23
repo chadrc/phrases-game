@@ -79,16 +79,18 @@ describe("AuthService", () => {
     });
   });
 
-  test("signOut", done => {
-    const authService = new AuthService();
+  test("signOut", async () => {
+    localStorage.clear();
+    const authService = new AuthService(localStorage);
 
-    authService
-      .signUp({ username: "PandaBear", password: "bamboo123" })
-      .then(() => {
-        authService.signOut().then(() => {
-          done();
-        });
-      });
+    await authService.signUp({
+      username: "PandaBear",
+      password: "bamboo123"
+    });
+
+    await authService.signOut();
+
+    expect(localStorage.getItem("accessToken")).toBeNull();
   });
 
   test("signOut - before signUp/signIn", done => {

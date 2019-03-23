@@ -104,7 +104,7 @@ export default class AuthService {
     }
 
     if (this._storage) {
-      this._storage.removeItem("currentUser");
+      this._storage.removeItem("accessToken");
     }
 
     return new Promise(resolve => {
