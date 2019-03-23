@@ -6,9 +6,11 @@ const letters = "abcdefghijklmnopqrstuvwxyz".split("");
 export default class GameService {
   _games = {};
   _authService = null;
+  _apiService = null;
 
-  constructor(authService) {
+  constructor(authService, apiService) {
     this._authService = authService;
+    this._apiService = apiService;
   }
 
   static get alphabetLetters() {
@@ -28,10 +30,15 @@ export default class GameService {
   }
 
   startGame() {
-    return this.withAuth(() => {
+    return this.withAuth(async () => {
+      const words = await this._apiService.getWords();
+
+      const roll = Math.floor(Math.random() * words.length);
+      const word = words[roll];
+
       const newGame = {
         id: uuid(),
-        word: "Polar Bear",
+        word: word,
         characterGuesses: [],
         wordGuesses: [],
         won: false

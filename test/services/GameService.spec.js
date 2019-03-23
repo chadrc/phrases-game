@@ -5,6 +5,12 @@ const gameServiceWithAccess = () => {
     get currentAccessToken() {
       return "123";
     }
+  }, {
+    getWords() {
+      return Promise.resolve([
+        "Polar Bear"
+      ]);
+    }
   });
 };
 
